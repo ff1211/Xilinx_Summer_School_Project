@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<vivadoHLSLog:LogRoot xmlns:vivadoHLSLog="www.xilinx.com/vivadoHLSLog">
+  <errorLogs>
+    <logs>
+      <synLog/>
+      <simLog/>
+      <mgLog/>
+      <packageLog/>
+      <csimLog/>
+    </logs>
+  </errorLogs>
+  <warningLogs>
+    <logs>
+      <synLog>
+        <logs message="WARNING: [SCHED 204-21] The critical path in module 'CvtColor' consists of the following:&#xD;&#xA;&#x9;'mul' operation of DSP[51] ('r.V', D:/Xilinx/Vivado/2018.3/common/technology/autopilot/hls/hls_video_imgproc.h:1495->D:/Xilinx/Vivado/2018.3/common/technology/autopilot/hls/hls_video_imgproc.h:1545->D:/Xilinx/Vivado/2018.3/common/technology/autopilot/hls/hls_video_imgproc.h:1972) [49]  (2.82 ns)&#xD;&#xA;&#x9;'add' operation of DSP[51] ('ret.V', D:/Xilinx/Vivado/2018.3/common/technology/autopilot/hls/hls_video_imgproc.h:1497->D:/Xilinx/Vivado/2018.3/common/technology/autopilot/hls/hls_video_imgproc.h:1545->D:/Xilinx/Vivado/2018.3/common/technology/autopilot/hls/hls_video_imgproc.h:1972) [51]  (2.73 ns)&#xD;&#xA;&#x9;'add' operation of DSP[53] ('ret.V', D:/Xilinx/Vivado/2018.3/common/technology/autopilot/hls/hls_video_imgproc.h:1497->D:/Xilinx/Vivado/2018.3/common/technology/autopilot/hls/hls_video_imgproc.h:1545->D:/Xilinx/Vivado/2018.3/common/technology/autopilot/hls/hls_video_imgproc.h:1972) [53]  (2.73 ns)&#xD;&#xA;&#x9;'add' operation ('__Val2__', D:/Xilinx/Vivado/2018.3/common/technology/autopilot/hls/hls_video_types.h:409->D:/Xilinx/Vivado/2018.3/common/technology/autopilot/hls/hls_video_types.h:500->D:/Xilinx/Vivado/2018.3/common/technology/autopilot/hls/hls_video_imgproc.h:1498->D:/Xilinx/Vivado/2018.3/common/technology/autopilot/hls/hls_video_imgproc.h:1545->D:/Xilinx/Vivado/2018.3/common/technology/autopilot/hls/hls_video_imgproc.h:1972) [57]  (1.31 ns)&#xD;&#xA;&#x9;'select' operation ('__Val2__', D:/Xilinx/Vivado/2018.3/common/technology/autopilot/hls/hls_video_types.h:409->D:/Xilinx/Vivado/2018.3/common/technology/autopilot/hls/hls_video_types.h:500->D:/Xilinx/Vivado/2018.3/common/technology/autopilot/hls/hls_video_imgproc.h:1498->D:/Xilinx/Vivado/2018.3/common/technology/autopilot/hls/hls_video_imgproc.h:1545->D:/Xilinx/Vivado/2018.3/common/technology/autopilot/hls/hls_video_imgproc.h:1972) [62]  (0.8 ns)" projectName="ov5640_rgb2gray" solutionName="solution1" date="2020-02-18T17:02:48.740+0800" type="Warning"/>
+        <logs message="WARNING: [SCHED 204-21] Estimated clock period (10.386ns) exceeds the target (target clock period: 10ns, clock uncertainty: 1.25ns, effective delay budget: 8.75ns)." projectName="ov5640_rgb2gray" solutionName="solution1" date="2020-02-18T17:02:48.730+0800" type="Warning"/>
+        <logs message="WARNING: [SYN 201-103] Legalizing function name 'CvtColor.1' to 'CvtColor_1'." projectName="ov5640_rgb2gray" solutionName="solution1" date="2020-02-18T17:02:45.320+0800" type="Warning"/>
+        <logs message="WARNING: [SYN 201-103] Legalizing function name 'Block_Mat.exit47_pro' to 'Block_Mat_exit47_pro'." projectName="ov5640_rgb2gray" solutionName="solution1" date="2020-02-18T17:02:45.239+0800" type="Warning"/>
+        <logs message="WARNING: [XFORM 203-631] Renaming function 'Block_Mat.exit47_proc' to 'Block_Mat.exit47_pro' (ov5640_rgb2gray/src/ov5640_rgb2gray.cpp:24)" projectName="ov5640_rgb2gray" solutionName="solution1" date="2020-02-18T17:02:45.203+0800" type="Warning"/>
+        <logs message="WARNING: [XFORM 203-631] Renaming function 'hls::AXIvideo2Mat&lt;24, 800, 1024, 4096>' to 'AXIvideo2Mat' (D:/Xilinx/Vivado/2018.3/common/technology/autopilot/hls/hls_video_io.h:49:9)" projectName="ov5640_rgb2gray" solutionName="solution1" date="2020-02-18T17:02:43.443+0800" type="Warning"/>
+        <logs message="WARNING: [XFORM 203-631] Renaming function 'hls::CvtColor&lt;HLS_GRAY2RGB, 0, 4096, 800, 1024>' to 'CvtColor.1' (D:/Xilinx/Vivado/2018.3/common/technology/autopilot/hls/hls_video_imgproc.h:672:39)" projectName="ov5640_rgb2gray" solutionName="solution1" date="2020-02-18T17:02:43.428+0800" type="Warning"/>
+        <logs message="WARNING: [XFORM 203-631] Renaming function 'hls::CvtColor&lt;HLS_RGB2GRAY, 4096, 0, 800, 1024>' to 'CvtColor' (D:/Xilinx/Vivado/2018.3/common/technology/autopilot/hls/hls_video_imgproc.h:409:39)" projectName="ov5640_rgb2gray" solutionName="solution1" date="2020-02-18T17:02:43.408+0800" type="Warning"/>
+        <logs message="WARNING: [XFORM 203-631] Renaming function 'hls::Mat2AXIvideo&lt;24, 800, 1024, 4096>' to 'Mat2AXIvideo' (D:/Xilinx/Vivado/2018.3/common/technology/autopilot/hls/hls_video_io.h:78:50)" projectName="ov5640_rgb2gray" solutionName="solution1" date="2020-02-18T17:02:43.397+0800" type="Warning"/>
+        <logs message="WARNING: [XFORM 203-1103] Ignored data pack directive on non-struct variable 'img_0.data_stream.V' (ov5640_rgb2gray/src/ov5640_rgb2gray.cpp:24)." projectName="ov5640_rgb2gray" solutionName="solution1" date="2020-02-18T17:02:38.865+0800" type="Warning"/>
+        <logs message="WARNING: [XFORM 203-1103] Ignored data pack directive on non-struct variable 'img_2.data_stream.V' (ov5640_rgb2gray/src/ov5640_rgb2gray.cpp:26)." projectName="ov5640_rgb2gray" solutionName="solution1" date="2020-02-18T17:02:38.267+0800" type="Warning"/>
+        <logs message="WARNING: [XFORM 203-1103] Ignored data pack directive on non-struct variable 'img_1.data_stream.V' (ov5640_rgb2gray/src/ov5640_rgb2gray.cpp:25)." projectName="ov5640_rgb2gray" solutionName="solution1" date="2020-02-18T17:02:38.250+0800" type="Warning"/>
+        <logs message="WARNING: [SYNCHK 200-23] D:/Xilinx/Vivado/2018.3/common/technology/autopilot/hls/hls_axi_io.h:78: variable-indexed range selection may cause suboptimal QoR." projectName="ov5640_rgb2gray" solutionName="solution1" date="2020-02-18T17:02:37.429+0800" type="Warning"/>
+      </synLog>
+      <simLog/>
+      <mgLog/>
+      <packageLog/>
+      <csimLog/>
+    </logs>
+  </warningLogs>
+</vivadoHLSLog:LogRoot>
