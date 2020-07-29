@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<autopilotfilemapping:AutoPilotFileMapping xmlns:autopilotfilemapping="www.autoesl.com/autopilotfilemapping">
+  <source>
+    <originFiles name="ov5640_sobel.h" path="D:\xup\hls\Xilinx_Summer_School_Project\sobel_hls\src\ov5640_sobel.h"/>
+    <originFiles name="ov5640_sobel.cpp" path="D:\xup\hls\Xilinx_Summer_School_Project\sobel_hls\src\ov5640_sobel.cpp"/>
+  </source>
+  <testbench>
+    <originFiles name="ov5640_sobel_tb.cpp" path="D:\xup\hls\Xilinx_Summer_School_Project\sobel_hls\src\ov5640_sobel_tb.cpp"/>
+    <originFiles name="lena.jpg" path="D:\xup\hls\Xilinx_Summer_School_Project\sobel_hls\src\lena.jpg"/>
+  </testbench>
+</autopilotfilemapping:AutoPilotFileMapping>
