@@ -1,0 +1,917 @@
+
+
+================================================================
+== Vivado HLS Report for 'Threshold'
+================================================================
+* Date:           Mon Mar 30 11:11:46 2020
+
+* Version:        2018.3 (Build 2405991 on Thu Dec 06 23:56:15 MST 2018)
+* Project:        otsu_threshold
+* Solution:       solution1
+* Product family: zynq
+* Target device:  xc7z020clg400-2
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |  10.00|     8.588|        1.25|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +--------+---------+--------+---------+---------+
+    |      Latency     |     Interval     | Pipeline|
+    |   min  |   max   |   min  |   max   |   Type  |
+    +--------+---------+--------+---------+---------+
+    |  205323|  1028523|  205323|  1028523|   none  |
+    +--------+---------+--------+---------+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +---------------+--------+--------+----------+-----------+-----------+----------+----------+
+        |               |     Latency     | Iteration|  Initiation Interval  |   Trip   |          |
+        |   Loop Name   |   min  |   max  |  Latency |  achieved |   target  |   Count  | Pipelined|
+        +---------------+--------+--------+----------+-----------+-----------+----------+----------+
+        |- Loop 1       |     256|     256|         1|          -|          -|       256|    no    |
+        |- loop_height  |       0|  823200| 5 ~ 1029 |          -|          -|  0 ~ 800 |    no    |
+        | + loop_width  |       2|    1026|         4|          1|          1| 0 ~ 1024 |    yes   |
+        |- Loop 3       |       2|       2|         1|          1|          1|         2|    yes   |
+        |- Loop 4       |  205056|  205056|       801|          -|          -|       256|    no    |
+        | + Loop 4.1    |     768|     768|         3|          -|          -|       256|    no    |
+        +---------------+--------+--------+----------+-----------+-----------+----------+----------+
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 2
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
++ Individual pipeline summary: 
+  * Pipeline-0: initiation interval (II) = 1, depth = 4
+  * Pipeline-1: initiation interval (II) = 1, depth = 1
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 49
+* Pipeline : 2
+  Pipeline-0 : II = 1, D = 4, States = { 4 5 6 7 }
+  Pipeline-1 : II = 1, D = 1, States = { 9 }
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 
+	2  / true
+2 --> 
+	2  / (!exitcond2_i)
+	3  / (exitcond2_i)
+3 --> 
+	4  / (tmp_7_i)
+	9  / (!tmp_7_i)
+4 --> 
+	5  / true
+5 --> 
+	6  / true
+6 --> 
+	8  / (!tmp_8_i)
+	7  / (tmp_8_i)
+7 --> 
+	4  / true
+8 --> 
+	3  / true
+9 --> 
+	10  / (exitcond3_i)
+	9  / (!exitcond3_i)
+10 --> 
+	11  / true
+11 --> 
+	12  / true
+12 --> 
+	13  / true
+13 --> 
+	14  / true
+14 --> 
+	15  / true
+15 --> 
+	16  / (!exitcond5_i)
+16 --> 
+	17  / (!exitcond_i)
+	19  / (exitcond_i)
+17 --> 
+	18  / true
+18 --> 
+	16  / true
+19 --> 
+	20  / true
+20 --> 
+	21  / true
+21 --> 
+	22  / true
+22 --> 
+	23  / true
+23 --> 
+	24  / true
+24 --> 
+	25  / true
+25 --> 
+	26  / true
+26 --> 
+	27  / true
+27 --> 
+	28  / true
+28 --> 
+	29  / true
+29 --> 
+	30  / true
+30 --> 
+	31  / true
+31 --> 
+	32  / true
+32 --> 
+	33  / true
+33 --> 
+	34  / true
+34 --> 
+	35  / true
+35 --> 
+	36  / true
+36 --> 
+	37  / true
+37 --> 
+	38  / true
+38 --> 
+	39  / true
+39 --> 
+	40  / true
+40 --> 
+	41  / true
+41 --> 
+	42  / true
+42 --> 
+	43  / true
+43 --> 
+	44  / true
+44 --> 
+	45  / true
+45 --> 
+	46  / true
+46 --> 
+	47  / true
+47 --> 
+	48  / true
+48 --> 
+	49  / true
+49 --> 
+	15  / true
+
+* FSM state operations: 
+
+State 1 <SV = 0> <Delay = 3.40>
+ST_1 : Operation 50 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i8* %p_dst_data_stream_V, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str103, i32 0, i32 0, [1 x i8]* @p_str104, [1 x i8]* @p_str105, [1 x i8]* @p_str106, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str107, [1 x i8]* @p_str108)"   --->   Operation 50 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 51 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i8* %p_src_data_stream_V, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str96, i32 0, i32 0, [1 x i8]* @p_str97, [1 x i8]* @p_str98, [1 x i8]* @p_str99, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str100, [1 x i8]* @p_str101)"   --->   Operation 51 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 52 [1/1] (0.00ns)   --->   "%hist_out_V = alloca [256 x i20], align 4" [otsu_threshold/src/otsu_threshold.h:18]   --->   Operation 52 'alloca' 'hist_out_V' <Predicate = true> <Delay = 0.00> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.77> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 20> <Depth = 256> <RAM>
+ST_1 : Operation 53 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i32* %p_src_cols_V, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str287, i32 0, i32 0, [1 x i8]* @p_str288, [1 x i8]* @p_str289, [1 x i8]* @p_str290, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str291, [11 x i8]* @ScalarProp_str)"   --->   Operation 53 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 54 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i32* %p_src_rows_V, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str282, i32 0, i32 0, [1 x i8]* @p_str283, [1 x i8]* @p_str284, [1 x i8]* @p_str285, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str286, [11 x i8]* @ScalarProp_str)"   --->   Operation 54 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 55 [1/1] (3.40ns)   --->   "%rows = call i32 @_ssdm_op_Read.ap_fifo.i32P(i32* %p_src_rows_V)"   --->   Operation 55 'read' 'rows' <Predicate = true> <Delay = 3.40> <Core = "FIFO">   --->   Core 32 'FIFO' <Latency = 0> <II = 1> <Delay = 3.40> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 32> <Depth = 2> <FIFO>
+ST_1 : Operation 56 [1/1] (3.40ns)   --->   "%cols = call i32 @_ssdm_op_Read.ap_fifo.i32P(i32* %p_src_cols_V)"   --->   Operation 56 'read' 'cols' <Predicate = true> <Delay = 3.40> <Core = "FIFO">   --->   Core 32 'FIFO' <Latency = 0> <II = 1> <Delay = 3.40> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 32> <Depth = 2> <FIFO>
+ST_1 : Operation 57 [1/1] (0.46ns)   --->   "br label %.preheader664.i" [otsu_threshold/src/otsu_threshold.h:39]   --->   Operation 57 'br' <Predicate = true> <Delay = 0.46>
+
+State 2 <SV = 1> <Delay = 2.77>
+ST_2 : Operation 58 [1/1] (0.00ns)   --->   "%i1_i = phi i9 [ %i, %0 ], [ 0, %entry ]"   --->   Operation 58 'phi' 'i1_i' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 59 [1/1] (1.62ns)   --->   "%exitcond2_i = icmp eq i9 %i1_i, -256" [otsu_threshold/src/otsu_threshold.h:39]   --->   Operation 59 'icmp' 'exitcond2_i' <Predicate = true> <Delay = 1.62> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 2.02> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 60 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecLoopTripCount(i64 256, i64 256, i64 256)"   --->   Operation 60 'speclooptripcount' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 61 [1/1] (1.36ns)   --->   "%i = add i9 %i1_i, 1" [otsu_threshold/src/otsu_threshold.h:39]   --->   Operation 61 'add' 'i' <Predicate = true> <Delay = 1.36> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.89> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 62 [1/1] (0.00ns)   --->   "br i1 %exitcond2_i, label %._crit_edge.i.preheader, label %0" [otsu_threshold/src/otsu_threshold.h:39]   --->   Operation 62 'br' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 63 [1/1] (0.00ns)   --->   "%tmp_5_i = zext i9 %i1_i to i64" [otsu_threshold/src/otsu_threshold.h:40]   --->   Operation 63 'zext' 'tmp_5_i' <Predicate = (!exitcond2_i)> <Delay = 0.00>
+ST_2 : Operation 64 [1/1] (0.00ns)   --->   "%hist_out_V_addr = getelementptr [256 x i20]* %hist_out_V, i64 0, i64 %tmp_5_i" [otsu_threshold/src/otsu_threshold.h:40]   --->   Operation 64 'getelementptr' 'hist_out_V_addr' <Predicate = (!exitcond2_i)> <Delay = 0.00>
+ST_2 : Operation 65 [1/1] (2.77ns)   --->   "store i20 0, i20* %hist_out_V_addr, align 4" [otsu_threshold/src/otsu_threshold.h:40]   --->   Operation 65 'store' <Predicate = (!exitcond2_i)> <Delay = 2.77> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.77> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 20> <Depth = 256> <RAM>
+ST_2 : Operation 66 [1/1] (0.00ns)   --->   "br label %.preheader664.i" [otsu_threshold/src/otsu_threshold.h:39]   --->   Operation 66 'br' <Predicate = (!exitcond2_i)> <Delay = 0.00>
+ST_2 : Operation 67 [1/1] (0.00ns)   --->   "%p_0341_i = alloca i20"   --->   Operation 67 'alloca' 'p_0341_i' <Predicate = (exitcond2_i)> <Delay = 0.00>
+ST_2 : Operation 68 [1/1] (0.00ns)   --->   "%p_0338_i = alloca i8"   --->   Operation 68 'alloca' 'p_0338_i' <Predicate = (exitcond2_i)> <Delay = 0.00>
+ST_2 : Operation 69 [1/1] (0.00ns)   --->   "%addr_win_val_0_V_2 = alloca i8"   --->   Operation 69 'alloca' 'addr_win_val_0_V_2' <Predicate = (exitcond2_i)> <Delay = 0.00>
+ST_2 : Operation 70 [1/1] (0.00ns)   --->   "%addr_win_val_0_V_1 = alloca i8"   --->   Operation 70 'alloca' 'addr_win_val_0_V_1' <Predicate = (exitcond2_i)> <Delay = 0.00>
+ST_2 : Operation 71 [1/1] (0.00ns)   --->   "%addr_win_val_0_V_3 = alloca i8"   --->   Operation 71 'alloca' 'addr_win_val_0_V_3' <Predicate = (exitcond2_i)> <Delay = 0.00>
+ST_2 : Operation 72 [1/1] (0.00ns)   --->   "%addr_last_V = alloca i8"   --->   Operation 72 'alloca' 'addr_last_V' <Predicate = (exitcond2_i)> <Delay = 0.00>
+ST_2 : Operation 73 [1/1] (0.00ns)   --->   "%hist_win_val_0_V_1_1 = alloca i20"   --->   Operation 73 'alloca' 'hist_win_val_0_V_1_1' <Predicate = (exitcond2_i)> <Delay = 0.00>
+ST_2 : Operation 74 [1/1] (0.00ns)   --->   "%hist_win_val_V_0_0_i = alloca i20"   --->   Operation 74 'alloca' 'hist_win_val_V_0_0_i' <Predicate = (exitcond2_i)> <Delay = 0.00>
+ST_2 : Operation 75 [1/1] (0.00ns)   --->   "%hist_win_val_0_V_2_1 = alloca i20"   --->   Operation 75 'alloca' 'hist_win_val_0_V_2_1' <Predicate = (exitcond2_i)> <Delay = 0.00>
+ST_2 : Operation 76 [1/1] (0.00ns)   --->   "%hist_win_val_0_V_3_1 = alloca i20"   --->   Operation 76 'alloca' 'hist_win_val_0_V_3_1' <Predicate = (exitcond2_i)> <Delay = 0.00>
+ST_2 : Operation 77 [1/1] (0.46ns)   --->   "store i20 0, i20* %hist_win_val_0_V_3_1"   --->   Operation 77 'store' <Predicate = (exitcond2_i)> <Delay = 0.46>
+ST_2 : Operation 78 [1/1] (0.46ns)   --->   "store i20 0, i20* %hist_win_val_0_V_2_1"   --->   Operation 78 'store' <Predicate = (exitcond2_i)> <Delay = 0.46>
+ST_2 : Operation 79 [1/1] (0.46ns)   --->   "store i20 0, i20* %hist_win_val_V_0_0_i"   --->   Operation 79 'store' <Predicate = (exitcond2_i)> <Delay = 0.46>
+ST_2 : Operation 80 [1/1] (0.46ns)   --->   "store i20 0, i20* %hist_win_val_0_V_1_1"   --->   Operation 80 'store' <Predicate = (exitcond2_i)> <Delay = 0.46>
+ST_2 : Operation 81 [1/1] (0.46ns)   --->   "store i8 3, i8* %addr_last_V"   --->   Operation 81 'store' <Predicate = (exitcond2_i)> <Delay = 0.46>
+ST_2 : Operation 82 [1/1] (0.46ns)   --->   "store i8 2, i8* %addr_win_val_0_V_3"   --->   Operation 82 'store' <Predicate = (exitcond2_i)> <Delay = 0.46>
+ST_2 : Operation 83 [1/1] (0.46ns)   --->   "store i8 0, i8* %addr_win_val_0_V_1"   --->   Operation 83 'store' <Predicate = (exitcond2_i)> <Delay = 0.46>
+ST_2 : Operation 84 [1/1] (0.46ns)   --->   "store i8 1, i8* %addr_win_val_0_V_2"   --->   Operation 84 'store' <Predicate = (exitcond2_i)> <Delay = 0.46>
+ST_2 : Operation 85 [1/1] (0.46ns)   --->   "br label %._crit_edge.i" [otsu_threshold/src/otsu_threshold.h:48]   --->   Operation 85 'br' <Predicate = (exitcond2_i)> <Delay = 0.46>
+
+State 3 <SV = 2> <Delay = 2.76>
+ST_3 : Operation 86 [1/1] (0.00ns)   --->   "%i2_i = phi i31 [ %i_1, %3 ], [ 0, %._crit_edge.i.preheader ]"   --->   Operation 86 'phi' 'i2_i' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 87 [1/1] (0.00ns)   --->   "%i2_cast_i = zext i31 %i2_i to i32" [otsu_threshold/src/otsu_threshold.h:48]   --->   Operation 87 'zext' 'i2_cast_i' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 88 [1/1] (1.96ns)   --->   "%tmp_7_i = icmp slt i32 %i2_cast_i, %rows" [otsu_threshold/src/otsu_threshold.h:48]   --->   Operation 88 'icmp' 'tmp_7_i' <Predicate = true> <Delay = 1.96> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 2.02> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 89 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecLoopTripCount(i64 0, i64 800, i64 0)"   --->   Operation 89 'speclooptripcount' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 90 [1/1] (1.87ns)   --->   "%i_1 = add i31 %i2_i, 1" [otsu_threshold/src/otsu_threshold.h:48]   --->   Operation 90 'add' 'i_1' <Predicate = true> <Delay = 1.87> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.89> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 91 [1/1] (0.00ns)   --->   "br i1 %tmp_7_i, label %1, label %.preheader662.i.preheader" [otsu_threshold/src/otsu_threshold.h:48]   --->   Operation 91 'br' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 92 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecLoopName([12 x i8]* @p_str10) nounwind" [otsu_threshold/src/otsu_threshold.h:49]   --->   Operation 92 'specloopname' <Predicate = (tmp_7_i)> <Delay = 0.00>
+ST_3 : Operation 93 [1/1] (0.00ns)   --->   "%tmp_i = call i32 (...)* @_ssdm_op_SpecRegionBegin([12 x i8]* @p_str10)" [otsu_threshold/src/otsu_threshold.h:49]   --->   Operation 93 'specregionbegin' 'tmp_i' <Predicate = (tmp_7_i)> <Delay = 0.00>
+ST_3 : Operation 94 [1/1] (0.46ns)   --->   "br label %2" [otsu_threshold/src/otsu_threshold.h:50]   --->   Operation 94 'br' <Predicate = (tmp_7_i)> <Delay = 0.46>
+ST_3 : Operation 95 [1/1] (0.46ns)   --->   "br label %.preheader662.i" [otsu_threshold/src/otsu_threshold.h:112]   --->   Operation 95 'br' <Predicate = (!tmp_7_i)> <Delay = 0.46>
+
+State 4 <SV = 3> <Delay = 1.96>
+ST_4 : Operation 96 [1/1] (0.00ns)   --->   "%j_i = phi i31 [ 0, %1 ], [ %j, %"operator().exit18.0.i_ifconv" ]"   --->   Operation 96 'phi' 'j_i' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 97 [1/1] (0.00ns)   --->   "%j_cast_i = zext i31 %j_i to i32" [otsu_threshold/src/otsu_threshold.h:50]   --->   Operation 97 'zext' 'j_cast_i' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 98 [1/1] (1.96ns)   --->   "%tmp_8_i = icmp slt i32 %j_cast_i, %cols" [otsu_threshold/src/otsu_threshold.h:50]   --->   Operation 98 'icmp' 'tmp_8_i' <Predicate = true> <Delay = 1.96> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 2.02> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 99 [1/1] (1.87ns)   --->   "%j = add i31 %j_i, 1" [otsu_threshold/src/otsu_threshold.h:50]   --->   Operation 99 'add' 'j' <Predicate = true> <Delay = 1.87> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.89> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+
+State 5 <SV = 4> <Delay = 3.40>
+ST_5 : Operation 100 [1/1] (0.00ns)   --->   "br i1 %tmp_8_i, label %"operator().exit18.0.i_ifconv", label %3" [otsu_threshold/src/otsu_threshold.h:50]   --->   Operation 100 'br' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 101 [1/1] (3.40ns)   --->   "%tmp_13 = call i8 @_ssdm_op_Read.ap_fifo.volatile.i8P(i8* %p_src_data_stream_V)" [otsu_threshold/src/otsu_threshold.h:58]   --->   Operation 101 'read' 'tmp_13' <Predicate = (tmp_8_i)> <Delay = 3.40> <Core = "FIFO">   --->   Core 32 'FIFO' <Latency = 0> <II = 1> <Delay = 3.40> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 32> <Depth = 2> <FIFO>
+
+State 6 <SV = 5> <Delay = 7.72>
+ST_6 : Operation 102 [1/1] (0.00ns)   --->   "%addr_win_val_0_V_1_1 = load i8* %addr_win_val_0_V_1"   --->   Operation 102 'load' 'addr_win_val_0_V_1_1' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 103 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecLoopTripCount(i64 0, i64 1024, i64 0)"   --->   Operation 103 'speclooptripcount' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 104 [1/1] (0.00ns)   --->   "%p_0338_i_load = load i8* %p_0338_i" [otsu_threshold/src/otsu_threshold.h:84]   --->   Operation 104 'load' 'p_0338_i_load' <Predicate = (tmp_8_i)> <Delay = 0.00>
+ST_6 : Operation 105 [1/1] (0.00ns)   --->   "%addr_win_val_0_V_2_1 = load i8* %addr_win_val_0_V_2" [otsu_threshold/src/otsu_threshold.h:90]   --->   Operation 105 'load' 'addr_win_val_0_V_2_1' <Predicate = (tmp_8_i)> <Delay = 0.00>
+ST_6 : Operation 106 [1/1] (0.00ns)   --->   "%addr_win_val_0_V_3_1 = load i8* %addr_win_val_0_V_3" [otsu_threshold/src/otsu_threshold.h:90]   --->   Operation 106 'load' 'addr_win_val_0_V_3_1' <Predicate = (tmp_8_i)> <Delay = 0.00>
+ST_6 : Operation 107 [1/1] (0.00ns)   --->   "%addr_last_V_load = load i8* %addr_last_V" [otsu_threshold/src/otsu_threshold.h:100]   --->   Operation 107 'load' 'addr_last_V_load' <Predicate = (tmp_8_i)> <Delay = 0.00>
+ST_6 : Operation 108 [1/1] (0.00ns)   --->   "%hls_threshold_V_loa = load i8* @hls_threshold_V, align 1" [otsu_threshold/src/otsu_threshold.h:59]   --->   Operation 108 'load' 'hls_threshold_V_loa' <Predicate = (tmp_8_i)> <Delay = 0.00>
+ST_6 : Operation 109 [1/1] (1.31ns)   --->   "%tmp_9_i = icmp ugt i8 %tmp_13, %hls_threshold_V_loa" [otsu_threshold/src/otsu_threshold.h:59]   --->   Operation 109 'icmp' 'tmp_9_i' <Predicate = (tmp_8_i)> <Delay = 1.31> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 2.02> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_6 : Operation 110 [1/1] (0.81ns)   --->   "%tempdst = select i1 %tmp_9_i, i8 -1, i8 0" [otsu_threshold/src/otsu_threshold.h:59]   --->   Operation 110 'select' 'tempdst' <Predicate = (tmp_8_i)> <Delay = 0.81> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 0.70> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_6 : Operation 111 [1/1] (3.40ns)   --->   "call void @_ssdm_op_Write.ap_fifo.volatile.i8P(i8* %p_dst_data_stream_V, i8 %tempdst)" [otsu_threshold/src/otsu_threshold.h:60]   --->   Operation 111 'write' <Predicate = (tmp_8_i)> <Delay = 3.40> <Core = "FIFO">   --->   Core 32 'FIFO' <Latency = 0> <II = 1> <Delay = 3.40> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 32> <Depth = 2> <FIFO>
+ST_6 : Operation 112 [1/1] (1.31ns)   --->   "%tmp_21_i = icmp eq i8 %tmp_13, %addr_win_val_0_V_1_1" [otsu_threshold/src/otsu_threshold.h:63]   --->   Operation 112 'icmp' 'tmp_21_i' <Predicate = (tmp_8_i)> <Delay = 1.31> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 2.02> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_6 : Operation 113 [1/1] (1.31ns)   --->   "%tmp_21_1_i = icmp eq i8 %tmp_13, %addr_win_val_0_V_2_1" [otsu_threshold/src/otsu_threshold.h:63]   --->   Operation 113 'icmp' 'tmp_21_1_i' <Predicate = (tmp_8_i)> <Delay = 1.31> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 2.02> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_6 : Operation 114 [1/1] (1.31ns)   --->   "%tmp_21_2_i = icmp eq i8 %tmp_13, %addr_win_val_0_V_3_1" [otsu_threshold/src/otsu_threshold.h:63]   --->   Operation 114 'icmp' 'tmp_21_2_i' <Predicate = (tmp_8_i)> <Delay = 1.31> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 2.02> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_6 : Operation 115 [1/1] (1.31ns)   --->   "%tmp_21_3_i = icmp eq i8 %tmp_13, %addr_last_V_load" [otsu_threshold/src/otsu_threshold.h:63]   --->   Operation 115 'icmp' 'tmp_21_3_i' <Predicate = (tmp_8_i)> <Delay = 1.31> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 2.02> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_6 : Operation 116 [1/1] (0.00ns) (grouped into LUT with out node p_2_i)   --->   "%p_i_cast = select i1 %tmp_21_i, i3 0, i3 3" [otsu_threshold/src/otsu_threshold.h:63]   --->   Operation 116 'select' 'p_i_cast' <Predicate = (tmp_8_i)> <Delay = 0.00> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 0.70> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_6 : Operation 117 [1/1] (0.00ns) (grouped into LUT with out node p_2_i)   --->   "%tmp_3 = or i1 %tmp_21_i, %tmp_21_3_i" [otsu_threshold/src/otsu_threshold.h:63]   --->   Operation 117 'or' 'tmp_3' <Predicate = (tmp_8_i)> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.80> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_6 : Operation 118 [1/1] (0.00ns) (grouped into LUT with out node p_2_i)   --->   "%sel_tmp = select i1 %tmp_3, i3 %p_i_cast, i3 -4" [otsu_threshold/src/otsu_threshold.h:63]   --->   Operation 118 'select' 'sel_tmp' <Predicate = (tmp_8_i)> <Delay = 0.00> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 0.70> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_6 : Operation 119 [1/1] (0.00ns) (grouped into LUT with out node tmp_4)   --->   "%sel_tmp1 = xor i1 %tmp_21_i, true" [otsu_threshold/src/otsu_threshold.h:63]   --->   Operation 119 'xor' 'sel_tmp1' <Predicate = (tmp_8_i)> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.80> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_6 : Operation 120 [1/1] (0.00ns) (grouped into LUT with out node tmp_4)   --->   "%sel_tmp2 = and i1 %tmp_21_1_i, %sel_tmp1" [otsu_threshold/src/otsu_threshold.h:63]   --->   Operation 120 'and' 'sel_tmp2' <Predicate = (tmp_8_i)> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.80> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_6 : Operation 121 [1/1] (0.00ns) (grouped into LUT with out node sel_tmp7)   --->   "%sel_tmp6_demorgan = or i1 %tmp_21_i, %tmp_21_1_i" [otsu_threshold/src/otsu_threshold.h:63]   --->   Operation 121 'or' 'sel_tmp6_demorgan' <Predicate = (tmp_8_i)> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.80> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_6 : Operation 122 [1/1] (0.00ns) (grouped into LUT with out node sel_tmp7)   --->   "%sel_tmp6 = xor i1 %sel_tmp6_demorgan, true" [otsu_threshold/src/otsu_threshold.h:63]   --->   Operation 122 'xor' 'sel_tmp6' <Predicate = (tmp_8_i)> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.80> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_6 : Operation 123 [1/1] (0.80ns) (out node of the LUT)   --->   "%sel_tmp7 = and i1 %tmp_21_2_i, %sel_tmp6" [otsu_threshold/src/otsu_threshold.h:63]   --->   Operation 123 'and' 'sel_tmp7' <Predicate = (tmp_8_i)> <Delay = 0.80> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.80> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_6 : Operation 124 [1/1] (0.00ns) (grouped into LUT with out node p_2_i)   --->   "%sel_tmp3_cast = select i1 %sel_tmp7, i3 2, i3 1" [otsu_threshold/src/otsu_threshold.h:63]   --->   Operation 124 'select' 'sel_tmp3_cast' <Predicate = (tmp_8_i)> <Delay = 0.00> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 0.70> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_6 : Operation 125 [1/1] (0.80ns) (out node of the LUT)   --->   "%tmp_4 = or i1 %sel_tmp7, %sel_tmp2" [otsu_threshold/src/otsu_threshold.h:63]   --->   Operation 125 'or' 'tmp_4' <Predicate = (tmp_8_i)> <Delay = 0.80> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.80> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_6 : Operation 126 [1/1] (0.80ns) (out node of the LUT)   --->   "%p_2_i = select i1 %tmp_4, i3 %sel_tmp3_cast, i3 %sel_tmp" [otsu_threshold/src/otsu_threshold.h:63]   --->   Operation 126 'select' 'p_2_i' <Predicate = (tmp_8_i)> <Delay = 0.80> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 0.70> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_6 : Operation 127 [1/1] (0.00ns)   --->   "%tmp_30_i = call i32 (...)* @_ssdm_op_SpecRegionBegin([15 x i8]* @p_str27)" [otsu_threshold/src/otsu_threshold.h:69]   --->   Operation 127 'specregionbegin' 'tmp_30_i' <Predicate = (tmp_8_i)> <Delay = 0.00>
+ST_6 : Operation 128 [1/1] (0.76ns)   --->   "%ret_V = add i3 1, %p_2_i" [otsu_threshold/src/otsu_threshold.h:78]   --->   Operation 128 'add' 'ret_V' <Predicate = (tmp_8_i)> <Delay = 0.76> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.89> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_6 : Operation 129 [1/1] (0.98ns)   --->   "%tmp_51_i = icmp eq i3 %ret_V, 3" [otsu_threshold/src/otsu_threshold.h:84]   --->   Operation 129 'icmp' 'tmp_51_i' <Predicate = (tmp_8_i)> <Delay = 0.98> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 2.02> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_6 : Operation 130 [1/1] (0.00ns) (grouped into LUT with out node addr_V_1_0338_2_be_s)   --->   "%p_0338_2_be_i = select i1 %tmp_51_i, i8 %addr_win_val_0_V_3_1, i8 %p_0338_i_load" [otsu_threshold/src/otsu_threshold.h:84]   --->   Operation 130 'select' 'p_0338_2_be_i' <Predicate = (tmp_8_i)> <Delay = 0.00> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 0.70> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_6 : Operation 131 [1/1] (0.98ns)   --->   "%tmp_49_1_i = icmp eq i3 %ret_V, 2" [otsu_threshold/src/otsu_threshold.h:78]   --->   Operation 131 'icmp' 'tmp_49_1_i' <Predicate = (tmp_8_i)> <Delay = 0.98> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 2.02> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_6 : Operation 132 [1/1] (0.44ns) (out node of the LUT)   --->   "%addr_V_1_0338_2_be_s = select i1 %tmp_49_1_i, i8 %addr_win_val_0_V_2_1, i8 %p_0338_2_be_i" [otsu_threshold/src/otsu_threshold.h:84]   --->   Operation 132 'select' 'addr_V_1_0338_2_be_s' <Predicate = (tmp_8_i)> <Delay = 0.44> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 0.70> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_6 : Operation 133 [1/1] (0.98ns)   --->   "%tmp_51_2_i = icmp eq i3 %p_2_i, 0" [otsu_threshold/src/otsu_threshold.h:84]   --->   Operation 133 'icmp' 'tmp_51_2_i' <Predicate = (tmp_8_i)> <Delay = 0.98> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 2.02> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_6 : Operation 134 [1/1] (0.44ns) (out node of the LUT)   --->   "%p_0338_2_be_2_i = select i1 %tmp_51_2_i, i8 %addr_win_val_0_V_1_1, i8 %addr_V_1_0338_2_be_s" [otsu_threshold/src/otsu_threshold.h:84]   --->   Operation 134 'select' 'p_0338_2_be_2_i' <Predicate = (tmp_8_i)> <Delay = 0.44> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 0.70> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_6 : Operation 135 [1/1] (0.98ns)   --->   "%tmp_31_i = icmp eq i3 %p_2_i, -4" [otsu_threshold/src/otsu_threshold.h:94]   --->   Operation 135 'icmp' 'tmp_31_i' <Predicate = (tmp_8_i)> <Delay = 0.98> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 2.02> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_6 : Operation 136 [1/1] (0.00ns)   --->   "%tmp_34_i = zext i8 %tmp_13 to i64" [otsu_threshold/src/otsu_threshold.h:95]   --->   Operation 136 'zext' 'tmp_34_i' <Predicate = (tmp_8_i)> <Delay = 0.00>
+ST_6 : Operation 137 [1/1] (0.00ns)   --->   "%hist_out_V_addr_2 = getelementptr [256 x i20]* %hist_out_V, i64 0, i64 %tmp_34_i" [otsu_threshold/src/otsu_threshold.h:95]   --->   Operation 137 'getelementptr' 'hist_out_V_addr_2' <Predicate = (tmp_8_i)> <Delay = 0.00>
+ST_6 : Operation 138 [2/2] (2.77ns)   --->   "%hist_out_V_load = load i20* %hist_out_V_addr_2, align 4" [otsu_threshold/src/otsu_threshold.h:95]   --->   Operation 138 'load' 'hist_out_V_load' <Predicate = (tmp_8_i)> <Delay = 2.77> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.77> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 20> <Depth = 256> <RAM>
+ST_6 : Operation 139 [1/1] (0.98ns)   --->   "%tmp_36_i = icmp eq i3 %p_2_i, 3" [otsu_threshold/src/otsu_threshold.h:97]   --->   Operation 139 'icmp' 'tmp_36_i' <Predicate = (tmp_8_i)> <Delay = 0.98> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 2.02> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_6 : Operation 140 [1/1] (0.00ns)   --->   "%tmp_1 = call i2 @_ssdm_op_PartSelect.i2.i3.i32.i32(i3 %p_2_i, i32 1, i32 2)" [otsu_threshold/src/otsu_threshold.h:100]   --->   Operation 140 'partselect' 'tmp_1' <Predicate = (tmp_8_i)> <Delay = 0.00>
+ST_6 : Operation 141 [1/1] (0.50ns)   --->   "%icmp = icmp ne i2 %tmp_1, 0" [otsu_threshold/src/otsu_threshold.h:100]   --->   Operation 141 'icmp' 'icmp' <Predicate = (tmp_8_i)> <Delay = 0.50> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 2.02> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_6 : Operation 142 [1/1] (0.00ns) (grouped into LUT with out node sel_tmp8)   --->   "%storemerge_i = select i1 %icmp, i8 %p_0338_2_be_2_i, i8 %addr_win_val_0_V_2_1" [otsu_threshold/src/otsu_threshold.h:100]   --->   Operation 142 'select' 'storemerge_i' <Predicate = (tmp_8_i)> <Delay = 0.00> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 0.70> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_6 : Operation 143 [1/1] (0.00ns) (grouped into LUT with out node sel_tmp5)   --->   "%sel_tmp4 = xor i1 %tmp_31_i, true" [otsu_threshold/src/otsu_threshold.h:94]   --->   Operation 143 'xor' 'sel_tmp4' <Predicate = (tmp_8_i)> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.80> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_6 : Operation 144 [1/1] (0.80ns) (out node of the LUT)   --->   "%sel_tmp5 = and i1 %tmp_36_i, %sel_tmp4" [otsu_threshold/src/otsu_threshold.h:97]   --->   Operation 144 'and' 'sel_tmp5' <Predicate = (tmp_8_i)> <Delay = 0.80> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.80> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_6 : Operation 145 [1/1] (0.44ns) (out node of the LUT)   --->   "%sel_tmp8 = select i1 %tmp_31_i, i8 %tmp_13, i8 %storemerge_i" [otsu_threshold/src/otsu_threshold.h:100]   --->   Operation 145 'select' 'sel_tmp8' <Predicate = (tmp_8_i)> <Delay = 0.44> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 0.70> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_6 : Operation 146 [1/1] (0.44ns) (out node of the LUT)   --->   "%addr_win_val_V_0_0_2 = select i1 %sel_tmp5, i8 %addr_last_V_load, i8 %sel_tmp8" [otsu_threshold/src/otsu_threshold.h:100]   --->   Operation 146 'select' 'addr_win_val_V_0_0_2' <Predicate = (tmp_8_i)> <Delay = 0.44> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 0.70> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_6 : Operation 147 [1/1] (0.46ns)   --->   "store i8 %addr_win_val_0_V_3_1, i8* %addr_last_V" [otsu_threshold/src/otsu_threshold.h:90]   --->   Operation 147 'store' <Predicate = (tmp_8_i)> <Delay = 0.46>
+ST_6 : Operation 148 [1/1] (0.46ns)   --->   "store i8 %addr_win_val_0_V_2_1, i8* %addr_win_val_0_V_3" [otsu_threshold/src/otsu_threshold.h:90]   --->   Operation 148 'store' <Predicate = (tmp_8_i)> <Delay = 0.46>
+ST_6 : Operation 149 [1/1] (0.46ns)   --->   "store i8 %addr_win_val_V_0_0_2, i8* %addr_win_val_0_V_1" [otsu_threshold/src/otsu_threshold.h:100]   --->   Operation 149 'store' <Predicate = (tmp_8_i)> <Delay = 0.46>
+ST_6 : Operation 150 [1/1] (0.46ns)   --->   "store i8 %addr_win_val_0_V_1_1, i8* %addr_win_val_0_V_2" [otsu_threshold/src/otsu_threshold.h:90]   --->   Operation 150 'store' <Predicate = (tmp_8_i)> <Delay = 0.46>
+ST_6 : Operation 151 [1/1] (0.00ns)   --->   "store i8 %p_0338_2_be_2_i, i8* %p_0338_i" [otsu_threshold/src/otsu_threshold.h:84]   --->   Operation 151 'store' <Predicate = (tmp_8_i)> <Delay = 0.00>
+
+State 7 <SV = 6> <Delay = 6.03>
+ST_7 : Operation 152 [1/1] (0.00ns)   --->   "%p_0341_i_load = load i20* %p_0341_i" [otsu_threshold/src/otsu_threshold.h:84]   --->   Operation 152 'load' 'p_0341_i_load' <Predicate = (tmp_8_i & !tmp_51_i & !tmp_49_1_i & !tmp_51_2_i)> <Delay = 0.00>
+ST_7 : Operation 153 [1/1] (0.00ns)   --->   "%hist_win_val_0_V_1_2 = load i20* %hist_win_val_0_V_1_1" [otsu_threshold/src/otsu_threshold.h:79]   --->   Operation 153 'load' 'hist_win_val_0_V_1_2' <Predicate = (tmp_8_i)> <Delay = 0.00>
+ST_7 : Operation 154 [1/1] (0.00ns)   --->   "%hist_win_val_V_0_0_i_1 = load i20* %hist_win_val_V_0_0_i" [otsu_threshold/src/otsu_threshold.h:86]   --->   Operation 154 'load' 'hist_win_val_V_0_0_i_1' <Predicate = (tmp_8_i)> <Delay = 0.00>
+ST_7 : Operation 155 [1/1] (0.00ns)   --->   "%hist_win_val_0_V_2_2 = load i20* %hist_win_val_0_V_2_1" [otsu_threshold/src/otsu_threshold.h:86]   --->   Operation 155 'load' 'hist_win_val_0_V_2_2' <Predicate = (tmp_8_i)> <Delay = 0.00>
+ST_7 : Operation 156 [1/1] (0.00ns)   --->   "%hist_win_val_0_V_3_2 = load i20* %hist_win_val_0_V_3_1" [otsu_threshold/src/otsu_threshold.h:72]   --->   Operation 156 'load' 'hist_win_val_0_V_3_2' <Predicate = (tmp_8_i & sel_tmp5)> <Delay = 0.00>
+ST_7 : Operation 157 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecLoopName([11 x i8]* @p_str11) nounwind" [otsu_threshold/src/otsu_threshold.h:51]   --->   Operation 157 'specloopname' <Predicate = (tmp_8_i)> <Delay = 0.00>
+ST_7 : Operation 158 [1/1] (0.00ns)   --->   "%tmp_4_i = call i32 (...)* @_ssdm_op_SpecRegionBegin([11 x i8]* @p_str11)" [otsu_threshold/src/otsu_threshold.h:51]   --->   Operation 158 'specregionbegin' 'tmp_4_i' <Predicate = (tmp_8_i)> <Delay = 0.00>
+ST_7 : Operation 159 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecPipeline(i32 -1, i32 1, i32 1, i32 0, [1 x i8]* @p_str3) nounwind" [otsu_threshold/src/otsu_threshold.h:52]   --->   Operation 159 'specpipeline' <Predicate = (tmp_8_i)> <Delay = 0.00>
+ST_7 : Operation 160 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecLatency(i32 0, i32 1, [1 x i8]* @p_str3) nounwind" [otsu_threshold/src/otsu_threshold.h:70]   --->   Operation 160 'speclatency' <Predicate = (tmp_8_i)> <Delay = 0.00>
+ST_7 : Operation 161 [1/1] (1.58ns)   --->   "%hist_last_V = add i20 1, %hist_win_val_0_V_3_2" [otsu_threshold/src/otsu_threshold.h:72]   --->   Operation 161 'add' 'hist_last_V' <Predicate = (tmp_8_i & sel_tmp5)> <Delay = 1.58> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.89> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 162 [1/1] (1.58ns)   --->   "%hist_flag_V_i = add i20 1, %hist_win_val_0_V_2_2" [otsu_threshold/src/otsu_threshold.h:86]   --->   Operation 162 'add' 'hist_flag_V_i' <Predicate = (tmp_8_i)> <Delay = 1.58> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.89> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 163 [1/1] (0.60ns)   --->   "%hist_win_val_0_V_3 = select i1 %tmp_51_i, i20 %hist_flag_V_i, i20 %hist_win_val_0_V_2_2" [otsu_threshold/src/otsu_threshold.h:84]   --->   Operation 163 'select' 'hist_win_val_0_V_3' <Predicate = (tmp_8_i)> <Delay = 0.60> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 0.70> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_7 : Operation 164 [1/1] (0.00ns) (grouped into LUT with out node hist_w_V_171_0341_2)   --->   "%p_0341_2_be_i = select i1 %tmp_51_i, i20 %hist_flag_V_i, i20 %p_0341_i_load" [otsu_threshold/src/otsu_threshold.h:84]   --->   Operation 164 'select' 'p_0341_2_be_i' <Predicate = (tmp_8_i & !tmp_49_1_i & !tmp_51_2_i)> <Delay = 0.00> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 0.70> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_7 : Operation 165 [1/1] (1.58ns)   --->   "%hist_w_V_i = add i20 1, %hist_win_val_0_V_1_2" [otsu_threshold/src/otsu_threshold.h:79]   --->   Operation 165 'add' 'hist_w_V_i' <Predicate = (tmp_8_i)> <Delay = 1.58> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.89> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 166 [1/1] (0.60ns)   --->   "%hist_win_val_0_V_2 = select i1 %tmp_49_1_i, i20 %hist_w_V_i, i20 %hist_win_val_0_V_1_2" [otsu_threshold/src/otsu_threshold.h:78]   --->   Operation 166 'select' 'hist_win_val_0_V_2' <Predicate = (tmp_8_i)> <Delay = 0.60> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 0.70> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_7 : Operation 167 [1/1] (0.60ns) (out node of the LUT)   --->   "%hist_w_V_171_0341_2 = select i1 %tmp_49_1_i, i20 %hist_w_V_i, i20 %p_0341_2_be_i" [otsu_threshold/src/otsu_threshold.h:84]   --->   Operation 167 'select' 'hist_w_V_171_0341_2' <Predicate = (tmp_8_i & !tmp_51_2_i)> <Delay = 0.60> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 0.70> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_7 : Operation 168 [1/1] (1.58ns)   --->   "%hist_flag_V_2_i = add i20 1, %hist_win_val_V_0_0_i_1" [otsu_threshold/src/otsu_threshold.h:86]   --->   Operation 168 'add' 'hist_flag_V_2_i' <Predicate = (tmp_8_i)> <Delay = 1.58> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.89> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 169 [1/1] (0.60ns)   --->   "%hist_win_val_0_V_1 = select i1 %tmp_51_2_i, i20 %hist_flag_V_2_i, i20 %hist_win_val_V_0_0_i_1" [otsu_threshold/src/otsu_threshold.h:84]   --->   Operation 169 'select' 'hist_win_val_0_V_1' <Predicate = (tmp_8_i)> <Delay = 0.60> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 0.70> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_7 : Operation 170 [1/1] (0.60ns) (out node of the LUT)   --->   "%p_0341_2_be_2_i = select i1 %tmp_51_2_i, i20 %hist_flag_V_2_i, i20 %hist_w_V_171_0341_2" [otsu_threshold/src/otsu_threshold.h:84]   --->   Operation 170 'select' 'p_0341_2_be_2_i' <Predicate = (tmp_8_i)> <Delay = 0.60> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 0.70> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_7 : Operation 171 [1/2] (2.77ns)   --->   "%hist_out_V_load = load i20* %hist_out_V_addr_2, align 4" [otsu_threshold/src/otsu_threshold.h:95]   --->   Operation 171 'load' 'hist_out_V_load' <Predicate = (tmp_8_i)> <Delay = 2.77> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.77> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 20> <Depth = 256> <RAM>
+ST_7 : Operation 172 [1/1] (1.58ns)   --->   "%hist_win_val_0_V_0 = add i20 1, %hist_out_V_load" [otsu_threshold/src/otsu_threshold.h:95]   --->   Operation 172 'add' 'hist_win_val_0_V_0' <Predicate = (tmp_8_i & tmp_31_i & !sel_tmp5)> <Delay = 1.58> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.89> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 173 [1/1] (0.00ns) (grouped into LUT with out node sel_tmp9)   --->   "%storemerge1_i = select i1 %icmp, i20 %p_0341_2_be_2_i, i20 %hist_win_val_0_V_2" [otsu_threshold/src/otsu_threshold.h:100]   --->   Operation 173 'select' 'storemerge1_i' <Predicate = (tmp_8_i & !tmp_31_i & !sel_tmp5)> <Delay = 0.00> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 0.70> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_7 : Operation 174 [1/1] (0.60ns) (out node of the LUT)   --->   "%sel_tmp9 = select i1 %tmp_31_i, i20 %hist_win_val_0_V_0, i20 %storemerge1_i" [otsu_threshold/src/otsu_threshold.h:100]   --->   Operation 174 'select' 'sel_tmp9' <Predicate = (tmp_8_i & !sel_tmp5)> <Delay = 0.60> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 0.70> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_7 : Operation 175 [1/1] (0.60ns) (out node of the LUT)   --->   "%hist_win_val_V_0_0_2 = select i1 %sel_tmp5, i20 %hist_last_V, i20 %sel_tmp9" [otsu_threshold/src/otsu_threshold.h:100]   --->   Operation 175 'select' 'hist_win_val_V_0_0_2' <Predicate = (tmp_8_i)> <Delay = 0.60> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 0.70> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_7 : Operation 176 [1/1] (0.00ns)   --->   "%tmp_38_i = zext i8 %addr_win_val_0_V_2_1 to i64" [otsu_threshold/src/otsu_threshold.h:107]   --->   Operation 176 'zext' 'tmp_38_i' <Predicate = (tmp_8_i)> <Delay = 0.00>
+ST_7 : Operation 177 [1/1] (0.00ns)   --->   "%hist_out_V_addr_4 = getelementptr [256 x i20]* %hist_out_V, i64 0, i64 %tmp_38_i" [otsu_threshold/src/otsu_threshold.h:107]   --->   Operation 177 'getelementptr' 'hist_out_V_addr_4' <Predicate = (tmp_8_i)> <Delay = 0.00>
+ST_7 : Operation 178 [1/1] (2.77ns)   --->   "store i20 %hist_win_val_0_V_2, i20* %hist_out_V_addr_4, align 4" [otsu_threshold/src/otsu_threshold.h:107]   --->   Operation 178 'store' <Predicate = (tmp_8_i)> <Delay = 2.77> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.77> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 20> <Depth = 256> <RAM>
+ST_7 : Operation 179 [1/1] (0.00ns)   --->   "%empty = call i32 (...)* @_ssdm_op_SpecRegionEnd([15 x i8]* @p_str27, i32 %tmp_30_i)" [otsu_threshold/src/otsu_threshold.h:108]   --->   Operation 179 'specregionend' 'empty' <Predicate = (tmp_8_i)> <Delay = 0.00>
+ST_7 : Operation 180 [1/1] (0.00ns)   --->   "%empty_53 = call i32 (...)* @_ssdm_op_SpecRegionEnd([11 x i8]* @p_str11, i32 %tmp_4_i)" [otsu_threshold/src/otsu_threshold.h:109]   --->   Operation 180 'specregionend' 'empty_53' <Predicate = (tmp_8_i)> <Delay = 0.00>
+ST_7 : Operation 181 [1/1] (0.46ns)   --->   "store i20 %hist_win_val_0_V_3, i20* %hist_win_val_0_V_3_1" [otsu_threshold/src/otsu_threshold.h:88]   --->   Operation 181 'store' <Predicate = (tmp_8_i)> <Delay = 0.46>
+ST_7 : Operation 182 [1/1] (0.46ns)   --->   "store i20 %hist_win_val_0_V_2, i20* %hist_win_val_0_V_2_1" [otsu_threshold/src/otsu_threshold.h:88]   --->   Operation 182 'store' <Predicate = (tmp_8_i)> <Delay = 0.46>
+ST_7 : Operation 183 [1/1] (0.46ns)   --->   "store i20 %hist_win_val_V_0_0_2, i20* %hist_win_val_V_0_0_i" [otsu_threshold/src/otsu_threshold.h:100]   --->   Operation 183 'store' <Predicate = (tmp_8_i)> <Delay = 0.46>
+ST_7 : Operation 184 [1/1] (0.46ns)   --->   "store i20 %hist_win_val_0_V_1, i20* %hist_win_val_0_V_1_1" [otsu_threshold/src/otsu_threshold.h:88]   --->   Operation 184 'store' <Predicate = (tmp_8_i)> <Delay = 0.46>
+ST_7 : Operation 185 [1/1] (0.00ns)   --->   "store i20 %p_0341_2_be_2_i, i20* %p_0341_i" [otsu_threshold/src/otsu_threshold.h:84]   --->   Operation 185 'store' <Predicate = (tmp_8_i)> <Delay = 0.00>
+ST_7 : Operation 186 [1/1] (0.00ns)   --->   "br label %2" [otsu_threshold/src/otsu_threshold.h:50]   --->   Operation 186 'br' <Predicate = (tmp_8_i)> <Delay = 0.00>
+
+State 8 <SV = 6> <Delay = 0.00>
+ST_8 : Operation 187 [1/1] (0.00ns)   --->   "%empty_54 = call i32 (...)* @_ssdm_op_SpecRegionEnd([12 x i8]* @p_str10, i32 %tmp_i)" [otsu_threshold/src/otsu_threshold.h:110]   --->   Operation 187 'specregionend' 'empty_54' <Predicate = true> <Delay = 0.00>
+ST_8 : Operation 188 [1/1] (0.00ns)   --->   "br label %._crit_edge.i" [otsu_threshold/src/otsu_threshold.h:48]   --->   Operation 188 'br' <Predicate = true> <Delay = 0.00>
+
+State 9 <SV = 3> <Delay = 3.88>
+ST_9 : Operation 189 [1/1] (0.00ns)   --->   "%col_assign = phi i2 [ %m, %"operator().exit26.i" ], [ 0, %.preheader662.i.preheader ]"   --->   Operation 189 'phi' 'col_assign' <Predicate = true> <Delay = 0.00>
+ST_9 : Operation 190 [1/1] (0.50ns)   --->   "%exitcond3_i = icmp eq i2 %col_assign, -2" [otsu_threshold/src/otsu_threshold.h:112]   --->   Operation 190 'icmp' 'exitcond3_i' <Predicate = true> <Delay = 0.50> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 2.02> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_9 : Operation 191 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecLoopTripCount(i64 2, i64 2, i64 2)"   --->   Operation 191 'speclooptripcount' <Predicate = true> <Delay = 0.00>
+ST_9 : Operation 192 [1/1] (0.63ns)   --->   "%m = add i2 %col_assign, 1" [otsu_threshold/src/otsu_threshold.h:112]   --->   Operation 192 'add' 'm' <Predicate = true> <Delay = 0.63> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.89> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_9 : Operation 193 [1/1] (0.00ns)   --->   "br i1 %exitcond3_i, label %.preheader661.i.preheader, label %"operator().exit26.i"" [otsu_threshold/src/otsu_threshold.h:112]   --->   Operation 193 'br' <Predicate = true> <Delay = 0.00>
+ST_9 : Operation 194 [1/1] (0.00ns)   --->   "%addr_win_val_0_V_2_2 = load i8* %addr_win_val_0_V_2" [otsu_threshold/src/otsu_threshold.h:114]   --->   Operation 194 'load' 'addr_win_val_0_V_2_2' <Predicate = (!exitcond3_i)> <Delay = 0.00>
+ST_9 : Operation 195 [1/1] (0.00ns)   --->   "%addr_win_val_0_V_1_2 = load i8* %addr_win_val_0_V_1" [otsu_threshold/src/otsu_threshold.h:114]   --->   Operation 195 'load' 'addr_win_val_0_V_1_2' <Predicate = (!exitcond3_i)> <Delay = 0.00>
+ST_9 : Operation 196 [1/1] (0.00ns)   --->   "%hist_win_val_0_V_1_3 = load i20* %hist_win_val_0_V_1_1" [otsu_threshold/src/otsu_threshold.h:114]   --->   Operation 196 'load' 'hist_win_val_0_V_1_3' <Predicate = (!exitcond3_i)> <Delay = 0.00>
+ST_9 : Operation 197 [1/1] (0.00ns)   --->   "%hist_win_val_V_0_0_i_2 = load i20* %hist_win_val_V_0_0_i" [otsu_threshold/src/otsu_threshold.h:114]   --->   Operation 197 'load' 'hist_win_val_V_0_0_i_2' <Predicate = (!exitcond3_i)> <Delay = 0.00>
+ST_9 : Operation 198 [1/1] (0.00ns)   --->   "%tmp_3_i = call i32 (...)* @_ssdm_op_SpecRegionBegin([12 x i8]* @p_str28)" [otsu_threshold/src/otsu_threshold.h:112]   --->   Operation 198 'specregionbegin' 'tmp_3_i' <Predicate = (!exitcond3_i)> <Delay = 0.00>
+ST_9 : Operation 199 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecPipeline(i32 -1, i32 1, i32 1, i32 0, [1 x i8]* @p_str3) nounwind" [otsu_threshold/src/otsu_threshold.h:113]   --->   Operation 199 'specpipeline' <Predicate = (!exitcond3_i)> <Delay = 0.00>
+ST_9 : Operation 200 [1/1] (0.50ns)   --->   "%cond_i = icmp eq i2 %col_assign, 0" [otsu_threshold/src/otsu_threshold.h:114]   --->   Operation 200 'icmp' 'cond_i' <Predicate = (!exitcond3_i)> <Delay = 0.50> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 2.02> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_9 : Operation 201 [1/1] (0.44ns)   --->   "%addr_win_val_V_load_s = select i1 %cond_i, i8 %addr_win_val_0_V_1_2, i8 %addr_win_val_0_V_2_2" [otsu_threshold/src/otsu_threshold.h:114]   --->   Operation 201 'select' 'addr_win_val_V_load_s' <Predicate = (!exitcond3_i)> <Delay = 0.44> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 0.70> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_9 : Operation 202 [1/1] (0.00ns)   --->   "%tmp_i_55 = zext i8 %addr_win_val_V_load_s to i64" [otsu_threshold/src/otsu_threshold.h:114]   --->   Operation 202 'zext' 'tmp_i_55' <Predicate = (!exitcond3_i)> <Delay = 0.00>
+ST_9 : Operation 203 [1/1] (0.60ns)   --->   "%hist_win_val_V_load_s = select i1 %cond_i, i20 %hist_win_val_V_0_0_i_2, i20 %hist_win_val_0_V_1_3" [otsu_threshold/src/otsu_threshold.h:114]   --->   Operation 203 'select' 'hist_win_val_V_load_s' <Predicate = (!exitcond3_i)> <Delay = 0.60> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 0.70> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_9 : Operation 204 [1/1] (0.00ns)   --->   "%hist_out_V_addr_1 = getelementptr [256 x i20]* %hist_out_V, i64 0, i64 %tmp_i_55" [otsu_threshold/src/otsu_threshold.h:114]   --->   Operation 204 'getelementptr' 'hist_out_V_addr_1' <Predicate = (!exitcond3_i)> <Delay = 0.00>
+ST_9 : Operation 205 [1/1] (2.77ns)   --->   "store i20 %hist_win_val_V_load_s, i20* %hist_out_V_addr_1, align 4" [otsu_threshold/src/otsu_threshold.h:114]   --->   Operation 205 'store' <Predicate = (!exitcond3_i)> <Delay = 2.77> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.77> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 20> <Depth = 256> <RAM>
+ST_9 : Operation 206 [1/1] (0.00ns)   --->   "%empty_56 = call i32 (...)* @_ssdm_op_SpecRegionEnd([12 x i8]* @p_str28, i32 %tmp_3_i)" [otsu_threshold/src/otsu_threshold.h:115]   --->   Operation 206 'specregionend' 'empty_56' <Predicate = (!exitcond3_i)> <Delay = 0.00>
+ST_9 : Operation 207 [1/1] (0.00ns)   --->   "br label %.preheader662.i" [otsu_threshold/src/otsu_threshold.h:112]   --->   Operation 207 'br' <Predicate = (!exitcond3_i)> <Delay = 0.00>
+
+State 10 <SV = 4> <Delay = 7.05>
+ST_10 : Operation 208 [1/1] (0.00ns)   --->   "%interclass_variance_s = alloca float"   --->   Operation 208 'alloca' 'interclass_variance_s' <Predicate = true> <Delay = 0.00>
+ST_10 : Operation 209 [1/1] (7.05ns)   --->   "%tmp_10_i = mul nsw i32 %rows, %cols" [otsu_threshold/src/otsu_threshold.h:161]   --->   Operation 209 'mul' 'tmp_10_i' <Predicate = true> <Delay = 7.05> <Core = "Mul">   --->   Core 16 'Mul' <Latency = 0> <II = 1> <Delay = 7.05> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+
+State 11 <SV = 5> <Delay = 8.08>
+ST_11 : Operation 210 [4/4] (8.08ns)   --->   "%tmp_11_i = sitofp i32 %tmp_10_i to float" [otsu_threshold/src/otsu_threshold.h:161]   --->   Operation 210 'sitofp' 'tmp_11_i' <Predicate = true> <Delay = 8.08> <Core = "Int2Float">   --->   Core 111 'Int2Float' <Latency = 3> <II = 1> <Delay = 8.08> <FuncUnit> <Opcode : 'sitofp' 'uitofp'> <InPorts = 1> <OutPorts = 1>
+
+State 12 <SV = 6> <Delay = 8.08>
+ST_12 : Operation 211 [3/4] (8.08ns)   --->   "%tmp_11_i = sitofp i32 %tmp_10_i to float" [otsu_threshold/src/otsu_threshold.h:161]   --->   Operation 211 'sitofp' 'tmp_11_i' <Predicate = true> <Delay = 8.08> <Core = "Int2Float">   --->   Core 111 'Int2Float' <Latency = 3> <II = 1> <Delay = 8.08> <FuncUnit> <Opcode : 'sitofp' 'uitofp'> <InPorts = 1> <OutPorts = 1>
+
+State 13 <SV = 7> <Delay = 8.08>
+ST_13 : Operation 212 [2/4] (8.08ns)   --->   "%tmp_11_i = sitofp i32 %tmp_10_i to float" [otsu_threshold/src/otsu_threshold.h:161]   --->   Operation 212 'sitofp' 'tmp_11_i' <Predicate = true> <Delay = 8.08> <Core = "Int2Float">   --->   Core 111 'Int2Float' <Latency = 3> <II = 1> <Delay = 8.08> <FuncUnit> <Opcode : 'sitofp' 'uitofp'> <InPorts = 1> <OutPorts = 1>
+
+State 14 <SV = 8> <Delay = 8.08>
+ST_14 : Operation 213 [1/4] (8.08ns)   --->   "%tmp_11_i = sitofp i32 %tmp_10_i to float" [otsu_threshold/src/otsu_threshold.h:161]   --->   Operation 213 'sitofp' 'tmp_11_i' <Predicate = true> <Delay = 8.08> <Core = "Int2Float">   --->   Core 111 'Int2Float' <Latency = 3> <II = 1> <Delay = 8.08> <FuncUnit> <Opcode : 'sitofp' 'uitofp'> <InPorts = 1> <OutPorts = 1>
+ST_14 : Operation 214 [1/1] (0.46ns)   --->   "br label %.preheader660.i" [otsu_threshold/src/otsu_threshold.h:138]   --->   Operation 214 'br' <Predicate = true> <Delay = 0.46>
+
+State 15 <SV = 9> <Delay = 2.42>
+ST_15 : Operation 215 [1/1] (0.00ns)   --->   "%val_assign = phi i9 [ 0, %.preheader661.i.preheader ], [ %threshold_tmp, %.preheader660.i.backedge ]"   --->   Operation 215 'phi' 'val_assign' <Predicate = true> <Delay = 0.00>
+ST_15 : Operation 216 [1/1] (1.62ns)   --->   "%exitcond5_i = icmp eq i9 %val_assign, -256" [otsu_threshold/src/otsu_threshold.h:138]   --->   Operation 216 'icmp' 'exitcond5_i' <Predicate = true> <Delay = 1.62> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 2.02> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_15 : Operation 217 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecLoopTripCount(i64 256, i64 256, i64 256)"   --->   Operation 217 'speclooptripcount' <Predicate = true> <Delay = 0.00>
+ST_15 : Operation 218 [1/1] (1.36ns)   --->   "%threshold_tmp = add i9 %val_assign, 1" [otsu_threshold/src/otsu_threshold.h:138]   --->   Operation 218 'add' 'threshold_tmp' <Predicate = true> <Delay = 1.36> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.89> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_15 : Operation 219 [1/1] (0.00ns)   --->   "br i1 %exitcond5_i, label %.exit, label %.preheader.i.preheader" [otsu_threshold/src/otsu_threshold.h:138]   --->   Operation 219 'br' <Predicate = true> <Delay = 0.00>
+ST_15 : Operation 220 [1/1] (0.46ns)   --->   "br label %.preheader.i" [otsu_threshold/src/otsu_threshold.h:145]   --->   Operation 220 'br' <Predicate = (!exitcond5_i)> <Delay = 0.46>
+ST_15 : Operation 221 [1/1] (0.00ns)   --->   "ret void"   --->   Operation 221 'ret' <Predicate = (exitcond5_i)> <Delay = 0.00>
+
+State 16 <SV = 10> <Delay = 2.77>
+ST_16 : Operation 222 [1/1] (0.00ns)   --->   "%front_pixel_count_i = phi i32 [ %front_pixel_count_1, %_ifconv ], [ 0, %.preheader.i.preheader ]"   --->   Operation 222 'phi' 'front_pixel_count_i' <Predicate = true> <Delay = 0.00>
+ST_16 : Operation 223 [1/1] (0.00ns)   --->   "%back_pixel_count_i = phi i32 [ %back_pixel_count_1, %_ifconv ], [ 0, %.preheader.i.preheader ]"   --->   Operation 223 'phi' 'back_pixel_count_i' <Predicate = true> <Delay = 0.00>
+ST_16 : Operation 224 [1/1] (0.00ns)   --->   "%front_gray_count_i = phi i32 [ %front_gray_count_1, %_ifconv ], [ 0, %.preheader.i.preheader ]"   --->   Operation 224 'phi' 'front_gray_count_i' <Predicate = true> <Delay = 0.00>
+ST_16 : Operation 225 [1/1] (0.00ns)   --->   "%back_gray_count_i = phi i32 [ %back_gray_count_1, %_ifconv ], [ 0, %.preheader.i.preheader ]"   --->   Operation 225 'phi' 'back_gray_count_i' <Predicate = true> <Delay = 0.00>
+ST_16 : Operation 226 [1/1] (0.00ns)   --->   "%i_op_assign = phi i9 [ %j_1, %_ifconv ], [ 0, %.preheader.i.preheader ]"   --->   Operation 226 'phi' 'i_op_assign' <Predicate = true> <Delay = 0.00>
+ST_16 : Operation 227 [1/1] (0.00ns)   --->   "%i_op_assign_cast7_i = zext i9 %i_op_assign to i29" [otsu_threshold/src/otsu_threshold.h:145]   --->   Operation 227 'zext' 'i_op_assign_cast7_i' <Predicate = true> <Delay = 0.00>
+ST_16 : Operation 228 [1/1] (1.62ns)   --->   "%exitcond_i = icmp eq i9 %i_op_assign, -256" [otsu_threshold/src/otsu_threshold.h:145]   --->   Operation 228 'icmp' 'exitcond_i' <Predicate = true> <Delay = 1.62> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 2.02> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_16 : Operation 229 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecLoopTripCount(i64 256, i64 256, i64 256)"   --->   Operation 229 'speclooptripcount' <Predicate = true> <Delay = 0.00>
+ST_16 : Operation 230 [1/1] (1.36ns)   --->   "%j_1 = add i9 %i_op_assign, 1" [otsu_threshold/src/otsu_threshold.h:145]   --->   Operation 230 'add' 'j_1' <Predicate = true> <Delay = 1.36> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.89> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_16 : Operation 231 [1/1] (0.00ns)   --->   "br i1 %exitcond_i, label %4, label %_ifconv" [otsu_threshold/src/otsu_threshold.h:145]   --->   Operation 231 'br' <Predicate = true> <Delay = 0.00>
+ST_16 : Operation 232 [1/1] (1.62ns)   --->   "%tmp_27_i = icmp ugt i9 %i_op_assign, %val_assign" [otsu_threshold/src/otsu_threshold.h:147]   --->   Operation 232 'icmp' 'tmp_27_i' <Predicate = (!exitcond_i)> <Delay = 1.62> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 2.02> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_16 : Operation 233 [1/1] (0.00ns)   --->   "%tmp_28_i = zext i9 %i_op_assign to i64" [otsu_threshold/src/otsu_threshold.h:155]   --->   Operation 233 'zext' 'tmp_28_i' <Predicate = (!exitcond_i)> <Delay = 0.00>
+ST_16 : Operation 234 [1/1] (0.00ns)   --->   "%hist_out_V_addr_3 = getelementptr [256 x i20]* %hist_out_V, i64 0, i64 %tmp_28_i" [otsu_threshold/src/otsu_threshold.h:155]   --->   Operation 234 'getelementptr' 'hist_out_V_addr_3' <Predicate = (!exitcond_i)> <Delay = 0.00>
+ST_16 : Operation 235 [2/2] (2.77ns)   --->   "%hist_out_V_load_1 = load i20* %hist_out_V_addr_3, align 4" [otsu_threshold/src/otsu_threshold.h:155]   --->   Operation 235 'load' 'hist_out_V_load_1' <Predicate = (!exitcond_i)> <Delay = 2.77> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.77> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 20> <Depth = 256> <RAM>
+ST_16 : Operation 236 [1/1] (1.89ns)   --->   "%total_gray = add nsw i32 %front_gray_count_i, %back_gray_count_i" [otsu_threshold/src/otsu_threshold.h:165]   --->   Operation 236 'add' 'total_gray' <Predicate = (exitcond_i)> <Delay = 1.89> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.89> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+
+State 17 <SV = 11> <Delay = 8.32>
+ST_17 : Operation 237 [1/2] (2.77ns)   --->   "%hist_out_V_load_1 = load i20* %hist_out_V_addr_3, align 4" [otsu_threshold/src/otsu_threshold.h:155]   --->   Operation 237 'load' 'hist_out_V_load_1' <Predicate = true> <Delay = 2.77> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.77> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 20> <Depth = 256> <RAM>
+ST_17 : Operation 238 [1/1] (0.00ns)   --->   "%tmp_29_i = zext i20 %hist_out_V_load_1 to i32" [otsu_threshold/src/otsu_threshold.h:155]   --->   Operation 238 'zext' 'tmp_29_i' <Predicate = true> <Delay = 0.00>
+ST_17 : Operation 239 [1/1] (0.00ns)   --->   "%tmp_29_cast_i = zext i20 %hist_out_V_load_1 to i29" [otsu_threshold/src/otsu_threshold.h:147]   --->   Operation 239 'zext' 'tmp_29_cast_i' <Predicate = true> <Delay = 0.00>
+ST_17 : Operation 240 [1/1] (1.89ns)   --->   "%back_pixel_count = add i32 %back_pixel_count_i, %tmp_29_i" [otsu_threshold/src/otsu_threshold.h:155]   --->   Operation 240 'add' 'back_pixel_count' <Predicate = (tmp_27_i)> <Delay = 1.89> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.89> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_17 : Operation 241 [1/1] (5.55ns) (root node of the DSP)   --->   "%tmp_32_i = mul i29 %tmp_29_cast_i, %i_op_assign_cast7_i" [otsu_threshold/src/otsu_threshold.h:156]   --->   Operation 241 'mul' 'tmp_32_i' <Predicate = true> <Delay = 5.55> <Core = "DSP48">   --->   Core 65 'DSP48' <Latency = 0> <II = 1> <Delay = 5.55> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
+ST_17 : Operation 242 [1/1] (1.89ns)   --->   "%front_pixel_count = add i32 %front_pixel_count_i, %tmp_29_i" [otsu_threshold/src/otsu_threshold.h:149]   --->   Operation 242 'add' 'front_pixel_count' <Predicate = (!tmp_27_i)> <Delay = 1.89> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.89> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_17 : Operation 243 [1/1] (0.70ns)   --->   "%front_pixel_count_1 = select i1 %tmp_27_i, i32 %front_pixel_count_i, i32 %front_pixel_count" [otsu_threshold/src/otsu_threshold.h:149]   --->   Operation 243 'select' 'front_pixel_count_1' <Predicate = true> <Delay = 0.70> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 0.70> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_17 : Operation 244 [1/1] (0.70ns)   --->   "%back_pixel_count_1 = select i1 %tmp_27_i, i32 %back_pixel_count, i32 %back_pixel_count_i" [otsu_threshold/src/otsu_threshold.h:147]   --->   Operation 244 'select' 'back_pixel_count_1' <Predicate = true> <Delay = 0.70> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 0.70> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+
+State 18 <SV = 12> <Delay = 2.60>
+ST_18 : Operation 245 [1/1] (0.00ns)   --->   "%tmp_32_cast_i = zext i29 %tmp_32_i to i32" [otsu_threshold/src/otsu_threshold.h:156]   --->   Operation 245 'zext' 'tmp_32_cast_i' <Predicate = true> <Delay = 0.00>
+ST_18 : Operation 246 [1/1] (1.89ns)   --->   "%back_gray_count = add i32 %back_gray_count_i, %tmp_32_cast_i" [otsu_threshold/src/otsu_threshold.h:156]   --->   Operation 246 'add' 'back_gray_count' <Predicate = (tmp_27_i)> <Delay = 1.89> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.89> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_18 : Operation 247 [1/1] (1.89ns)   --->   "%front_gray_count = add i32 %front_gray_count_i, %tmp_32_cast_i" [otsu_threshold/src/otsu_threshold.h:150]   --->   Operation 247 'add' 'front_gray_count' <Predicate = (!tmp_27_i)> <Delay = 1.89> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.89> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_18 : Operation 248 [1/1] (0.70ns)   --->   "%front_gray_count_1 = select i1 %tmp_27_i, i32 %front_gray_count_i, i32 %front_gray_count" [otsu_threshold/src/otsu_threshold.h:150]   --->   Operation 248 'select' 'front_gray_count_1' <Predicate = true> <Delay = 0.70> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 0.70> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_18 : Operation 249 [1/1] (0.70ns)   --->   "%back_gray_count_1 = select i1 %tmp_27_i, i32 %back_gray_count, i32 %back_gray_count_i" [otsu_threshold/src/otsu_threshold.h:147]   --->   Operation 249 'select' 'back_gray_count_1' <Predicate = true> <Delay = 0.70> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 0.70> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_18 : Operation 250 [1/1] (0.00ns)   --->   "br label %.preheader.i" [otsu_threshold/src/otsu_threshold.h:145]   --->   Operation 250 'br' <Predicate = true> <Delay = 0.00>
+
+State 19 <SV = 11> <Delay = 8.08>
+ST_19 : Operation 251 [4/4] (8.08ns)   --->   "%tmp_14_i = sitofp i32 %front_pixel_count_i to float" [otsu_threshold/src/otsu_threshold.h:161]   --->   Operation 251 'sitofp' 'tmp_14_i' <Predicate = true> <Delay = 8.08> <Core = "Int2Float">   --->   Core 111 'Int2Float' <Latency = 3> <II = 1> <Delay = 8.08> <FuncUnit> <Opcode : 'sitofp' 'uitofp'> <InPorts = 1> <OutPorts = 1>
+ST_19 : Operation 252 [4/4] (8.08ns)   --->   "%tmp_15_i = sitofp i32 %back_pixel_count_i to float" [otsu_threshold/src/otsu_threshold.h:163]   --->   Operation 252 'sitofp' 'tmp_15_i' <Predicate = true> <Delay = 8.08> <Core = "Int2Float">   --->   Core 111 'Int2Float' <Latency = 3> <II = 1> <Delay = 8.08> <FuncUnit> <Opcode : 'sitofp' 'uitofp'> <InPorts = 1> <OutPorts = 1>
+ST_19 : Operation 253 [4/4] (8.08ns)   --->   "%tmp_16_i = sitofp i32 %front_gray_count_i to float" [otsu_threshold/src/otsu_threshold.h:167]   --->   Operation 253 'sitofp' 'tmp_16_i' <Predicate = true> <Delay = 8.08> <Core = "Int2Float">   --->   Core 111 'Int2Float' <Latency = 3> <II = 1> <Delay = 8.08> <FuncUnit> <Opcode : 'sitofp' 'uitofp'> <InPorts = 1> <OutPorts = 1>
+ST_19 : Operation 254 [4/4] (8.08ns)   --->   "%tmp_17_i = sitofp i32 %back_gray_count_i to float" [otsu_threshold/src/otsu_threshold.h:169]   --->   Operation 254 'sitofp' 'tmp_17_i' <Predicate = true> <Delay = 8.08> <Core = "Int2Float">   --->   Core 111 'Int2Float' <Latency = 3> <II = 1> <Delay = 8.08> <FuncUnit> <Opcode : 'sitofp' 'uitofp'> <InPorts = 1> <OutPorts = 1>
+ST_19 : Operation 255 [4/4] (8.08ns)   --->   "%tmp_18_i = sitofp i32 %total_gray to float" [otsu_threshold/src/otsu_threshold.h:171]   --->   Operation 255 'sitofp' 'tmp_18_i' <Predicate = true> <Delay = 8.08> <Core = "Int2Float">   --->   Core 111 'Int2Float' <Latency = 3> <II = 1> <Delay = 8.08> <FuncUnit> <Opcode : 'sitofp' 'uitofp'> <InPorts = 1> <OutPorts = 1>
+
+State 20 <SV = 12> <Delay = 8.08>
+ST_20 : Operation 256 [3/4] (8.08ns)   --->   "%tmp_14_i = sitofp i32 %front_pixel_count_i to float" [otsu_threshold/src/otsu_threshold.h:161]   --->   Operation 256 'sitofp' 'tmp_14_i' <Predicate = true> <Delay = 8.08> <Core = "Int2Float">   --->   Core 111 'Int2Float' <Latency = 3> <II = 1> <Delay = 8.08> <FuncUnit> <Opcode : 'sitofp' 'uitofp'> <InPorts = 1> <OutPorts = 1>
+ST_20 : Operation 257 [3/4] (8.08ns)   --->   "%tmp_15_i = sitofp i32 %back_pixel_count_i to float" [otsu_threshold/src/otsu_threshold.h:163]   --->   Operation 257 'sitofp' 'tmp_15_i' <Predicate = true> <Delay = 8.08> <Core = "Int2Float">   --->   Core 111 'Int2Float' <Latency = 3> <II = 1> <Delay = 8.08> <FuncUnit> <Opcode : 'sitofp' 'uitofp'> <InPorts = 1> <OutPorts = 1>
+ST_20 : Operation 258 [3/4] (8.08ns)   --->   "%tmp_16_i = sitofp i32 %front_gray_count_i to float" [otsu_threshold/src/otsu_threshold.h:167]   --->   Operation 258 'sitofp' 'tmp_16_i' <Predicate = true> <Delay = 8.08> <Core = "Int2Float">   --->   Core 111 'Int2Float' <Latency = 3> <II = 1> <Delay = 8.08> <FuncUnit> <Opcode : 'sitofp' 'uitofp'> <InPorts = 1> <OutPorts = 1>
+ST_20 : Operation 259 [3/4] (8.08ns)   --->   "%tmp_17_i = sitofp i32 %back_gray_count_i to float" [otsu_threshold/src/otsu_threshold.h:169]   --->   Operation 259 'sitofp' 'tmp_17_i' <Predicate = true> <Delay = 8.08> <Core = "Int2Float">   --->   Core 111 'Int2Float' <Latency = 3> <II = 1> <Delay = 8.08> <FuncUnit> <Opcode : 'sitofp' 'uitofp'> <InPorts = 1> <OutPorts = 1>
+ST_20 : Operation 260 [3/4] (8.08ns)   --->   "%tmp_18_i = sitofp i32 %total_gray to float" [otsu_threshold/src/otsu_threshold.h:171]   --->   Operation 260 'sitofp' 'tmp_18_i' <Predicate = true> <Delay = 8.08> <Core = "Int2Float">   --->   Core 111 'Int2Float' <Latency = 3> <II = 1> <Delay = 8.08> <FuncUnit> <Opcode : 'sitofp' 'uitofp'> <InPorts = 1> <OutPorts = 1>
+
+State 21 <SV = 13> <Delay = 8.08>
+ST_21 : Operation 261 [2/4] (8.08ns)   --->   "%tmp_14_i = sitofp i32 %front_pixel_count_i to float" [otsu_threshold/src/otsu_threshold.h:161]   --->   Operation 261 'sitofp' 'tmp_14_i' <Predicate = true> <Delay = 8.08> <Core = "Int2Float">   --->   Core 111 'Int2Float' <Latency = 3> <II = 1> <Delay = 8.08> <FuncUnit> <Opcode : 'sitofp' 'uitofp'> <InPorts = 1> <OutPorts = 1>
+ST_21 : Operation 262 [2/4] (8.08ns)   --->   "%tmp_15_i = sitofp i32 %back_pixel_count_i to float" [otsu_threshold/src/otsu_threshold.h:163]   --->   Operation 262 'sitofp' 'tmp_15_i' <Predicate = true> <Delay = 8.08> <Core = "Int2Float">   --->   Core 111 'Int2Float' <Latency = 3> <II = 1> <Delay = 8.08> <FuncUnit> <Opcode : 'sitofp' 'uitofp'> <InPorts = 1> <OutPorts = 1>
+ST_21 : Operation 263 [2/4] (8.08ns)   --->   "%tmp_16_i = sitofp i32 %front_gray_count_i to float" [otsu_threshold/src/otsu_threshold.h:167]   --->   Operation 263 'sitofp' 'tmp_16_i' <Predicate = true> <Delay = 8.08> <Core = "Int2Float">   --->   Core 111 'Int2Float' <Latency = 3> <II = 1> <Delay = 8.08> <FuncUnit> <Opcode : 'sitofp' 'uitofp'> <InPorts = 1> <OutPorts = 1>
+ST_21 : Operation 264 [2/4] (8.08ns)   --->   "%tmp_17_i = sitofp i32 %back_gray_count_i to float" [otsu_threshold/src/otsu_threshold.h:169]   --->   Operation 264 'sitofp' 'tmp_17_i' <Predicate = true> <Delay = 8.08> <Core = "Int2Float">   --->   Core 111 'Int2Float' <Latency = 3> <II = 1> <Delay = 8.08> <FuncUnit> <Opcode : 'sitofp' 'uitofp'> <InPorts = 1> <OutPorts = 1>
+ST_21 : Operation 265 [2/4] (8.08ns)   --->   "%tmp_18_i = sitofp i32 %total_gray to float" [otsu_threshold/src/otsu_threshold.h:171]   --->   Operation 265 'sitofp' 'tmp_18_i' <Predicate = true> <Delay = 8.08> <Core = "Int2Float">   --->   Core 111 'Int2Float' <Latency = 3> <II = 1> <Delay = 8.08> <FuncUnit> <Opcode : 'sitofp' 'uitofp'> <InPorts = 1> <OutPorts = 1>
+
+State 22 <SV = 14> <Delay = 8.08>
+ST_22 : Operation 266 [1/4] (8.08ns)   --->   "%tmp_14_i = sitofp i32 %front_pixel_count_i to float" [otsu_threshold/src/otsu_threshold.h:161]   --->   Operation 266 'sitofp' 'tmp_14_i' <Predicate = true> <Delay = 8.08> <Core = "Int2Float">   --->   Core 111 'Int2Float' <Latency = 3> <II = 1> <Delay = 8.08> <FuncUnit> <Opcode : 'sitofp' 'uitofp'> <InPorts = 1> <OutPorts = 1>
+ST_22 : Operation 267 [1/4] (8.08ns)   --->   "%tmp_15_i = sitofp i32 %back_pixel_count_i to float" [otsu_threshold/src/otsu_threshold.h:163]   --->   Operation 267 'sitofp' 'tmp_15_i' <Predicate = true> <Delay = 8.08> <Core = "Int2Float">   --->   Core 111 'Int2Float' <Latency = 3> <II = 1> <Delay = 8.08> <FuncUnit> <Opcode : 'sitofp' 'uitofp'> <InPorts = 1> <OutPorts = 1>
+ST_22 : Operation 268 [1/4] (8.08ns)   --->   "%tmp_16_i = sitofp i32 %front_gray_count_i to float" [otsu_threshold/src/otsu_threshold.h:167]   --->   Operation 268 'sitofp' 'tmp_16_i' <Predicate = true> <Delay = 8.08> <Core = "Int2Float">   --->   Core 111 'Int2Float' <Latency = 3> <II = 1> <Delay = 8.08> <FuncUnit> <Opcode : 'sitofp' 'uitofp'> <InPorts = 1> <OutPorts = 1>
+ST_22 : Operation 269 [1/4] (8.08ns)   --->   "%tmp_17_i = sitofp i32 %back_gray_count_i to float" [otsu_threshold/src/otsu_threshold.h:169]   --->   Operation 269 'sitofp' 'tmp_17_i' <Predicate = true> <Delay = 8.08> <Core = "Int2Float">   --->   Core 111 'Int2Float' <Latency = 3> <II = 1> <Delay = 8.08> <FuncUnit> <Opcode : 'sitofp' 'uitofp'> <InPorts = 1> <OutPorts = 1>
+ST_22 : Operation 270 [1/4] (8.08ns)   --->   "%tmp_18_i = sitofp i32 %total_gray to float" [otsu_threshold/src/otsu_threshold.h:171]   --->   Operation 270 'sitofp' 'tmp_18_i' <Predicate = true> <Delay = 8.08> <Core = "Int2Float">   --->   Core 111 'Int2Float' <Latency = 3> <II = 1> <Delay = 8.08> <FuncUnit> <Opcode : 'sitofp' 'uitofp'> <InPorts = 1> <OutPorts = 1>
+
+State 23 <SV = 15> <Delay = 7.19>
+ST_23 : Operation 271 [12/12] (7.19ns)   --->   "%front_pixel_probabil = fdiv float %tmp_14_i, %tmp_11_i" [otsu_threshold/src/otsu_threshold.h:161]   --->   Operation 271 'fdiv' 'front_pixel_probabil' <Predicate = true> <Delay = 7.19> <Core = "FDiv">   --->   Core 106 'FDiv' <Latency = 11> <II = 1> <Delay = 7.19> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
+ST_23 : Operation 272 [12/12] (7.19ns)   --->   "%back_pixel_probabili = fdiv float %tmp_15_i, %tmp_11_i" [otsu_threshold/src/otsu_threshold.h:163]   --->   Operation 272 'fdiv' 'back_pixel_probabili' <Predicate = true> <Delay = 7.19> <Core = "FDiv">   --->   Core 106 'FDiv' <Latency = 11> <II = 1> <Delay = 7.19> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
+ST_23 : Operation 273 [12/12] (7.19ns)   --->   "%front_gray_average = fdiv float %tmp_16_i, %tmp_14_i" [otsu_threshold/src/otsu_threshold.h:167]   --->   Operation 273 'fdiv' 'front_gray_average' <Predicate = true> <Delay = 7.19> <Core = "FDiv">   --->   Core 106 'FDiv' <Latency = 11> <II = 1> <Delay = 7.19> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
+ST_23 : Operation 274 [12/12] (7.19ns)   --->   "%back_gray_average = fdiv float %tmp_17_i, %tmp_15_i" [otsu_threshold/src/otsu_threshold.h:169]   --->   Operation 274 'fdiv' 'back_gray_average' <Predicate = true> <Delay = 7.19> <Core = "FDiv">   --->   Core 106 'FDiv' <Latency = 11> <II = 1> <Delay = 7.19> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
+ST_23 : Operation 275 [12/12] (7.19ns)   --->   "%total_gray_average = fdiv float %tmp_18_i, %tmp_11_i" [otsu_threshold/src/otsu_threshold.h:171]   --->   Operation 275 'fdiv' 'total_gray_average' <Predicate = true> <Delay = 7.19> <Core = "FDiv">   --->   Core 106 'FDiv' <Latency = 11> <II = 1> <Delay = 7.19> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
+
+State 24 <SV = 16> <Delay = 7.19>
+ST_24 : Operation 276 [11/12] (7.19ns)   --->   "%front_pixel_probabil = fdiv float %tmp_14_i, %tmp_11_i" [otsu_threshold/src/otsu_threshold.h:161]   --->   Operation 276 'fdiv' 'front_pixel_probabil' <Predicate = true> <Delay = 7.19> <Core = "FDiv">   --->   Core 106 'FDiv' <Latency = 11> <II = 1> <Delay = 7.19> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
+ST_24 : Operation 277 [11/12] (7.19ns)   --->   "%back_pixel_probabili = fdiv float %tmp_15_i, %tmp_11_i" [otsu_threshold/src/otsu_threshold.h:163]   --->   Operation 277 'fdiv' 'back_pixel_probabili' <Predicate = true> <Delay = 7.19> <Core = "FDiv">   --->   Core 106 'FDiv' <Latency = 11> <II = 1> <Delay = 7.19> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
+ST_24 : Operation 278 [11/12] (7.19ns)   --->   "%front_gray_average = fdiv float %tmp_16_i, %tmp_14_i" [otsu_threshold/src/otsu_threshold.h:167]   --->   Operation 278 'fdiv' 'front_gray_average' <Predicate = true> <Delay = 7.19> <Core = "FDiv">   --->   Core 106 'FDiv' <Latency = 11> <II = 1> <Delay = 7.19> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
+ST_24 : Operation 279 [11/12] (7.19ns)   --->   "%back_gray_average = fdiv float %tmp_17_i, %tmp_15_i" [otsu_threshold/src/otsu_threshold.h:169]   --->   Operation 279 'fdiv' 'back_gray_average' <Predicate = true> <Delay = 7.19> <Core = "FDiv">   --->   Core 106 'FDiv' <Latency = 11> <II = 1> <Delay = 7.19> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
+ST_24 : Operation 280 [11/12] (7.19ns)   --->   "%total_gray_average = fdiv float %tmp_18_i, %tmp_11_i" [otsu_threshold/src/otsu_threshold.h:171]   --->   Operation 280 'fdiv' 'total_gray_average' <Predicate = true> <Delay = 7.19> <Core = "FDiv">   --->   Core 106 'FDiv' <Latency = 11> <II = 1> <Delay = 7.19> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
+
+State 25 <SV = 17> <Delay = 7.19>
+ST_25 : Operation 281 [10/12] (7.19ns)   --->   "%front_pixel_probabil = fdiv float %tmp_14_i, %tmp_11_i" [otsu_threshold/src/otsu_threshold.h:161]   --->   Operation 281 'fdiv' 'front_pixel_probabil' <Predicate = true> <Delay = 7.19> <Core = "FDiv">   --->   Core 106 'FDiv' <Latency = 11> <II = 1> <Delay = 7.19> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
+ST_25 : Operation 282 [10/12] (7.19ns)   --->   "%back_pixel_probabili = fdiv float %tmp_15_i, %tmp_11_i" [otsu_threshold/src/otsu_threshold.h:163]   --->   Operation 282 'fdiv' 'back_pixel_probabili' <Predicate = true> <Delay = 7.19> <Core = "FDiv">   --->   Core 106 'FDiv' <Latency = 11> <II = 1> <Delay = 7.19> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
+ST_25 : Operation 283 [10/12] (7.19ns)   --->   "%front_gray_average = fdiv float %tmp_16_i, %tmp_14_i" [otsu_threshold/src/otsu_threshold.h:167]   --->   Operation 283 'fdiv' 'front_gray_average' <Predicate = true> <Delay = 7.19> <Core = "FDiv">   --->   Core 106 'FDiv' <Latency = 11> <II = 1> <Delay = 7.19> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
+ST_25 : Operation 284 [10/12] (7.19ns)   --->   "%back_gray_average = fdiv float %tmp_17_i, %tmp_15_i" [otsu_threshold/src/otsu_threshold.h:169]   --->   Operation 284 'fdiv' 'back_gray_average' <Predicate = true> <Delay = 7.19> <Core = "FDiv">   --->   Core 106 'FDiv' <Latency = 11> <II = 1> <Delay = 7.19> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
+ST_25 : Operation 285 [10/12] (7.19ns)   --->   "%total_gray_average = fdiv float %tmp_18_i, %tmp_11_i" [otsu_threshold/src/otsu_threshold.h:171]   --->   Operation 285 'fdiv' 'total_gray_average' <Predicate = true> <Delay = 7.19> <Core = "FDiv">   --->   Core 106 'FDiv' <Latency = 11> <II = 1> <Delay = 7.19> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
+
+State 26 <SV = 18> <Delay = 7.19>
+ST_26 : Operation 286 [9/12] (7.19ns)   --->   "%front_pixel_probabil = fdiv float %tmp_14_i, %tmp_11_i" [otsu_threshold/src/otsu_threshold.h:161]   --->   Operation 286 'fdiv' 'front_pixel_probabil' <Predicate = true> <Delay = 7.19> <Core = "FDiv">   --->   Core 106 'FDiv' <Latency = 11> <II = 1> <Delay = 7.19> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
+ST_26 : Operation 287 [9/12] (7.19ns)   --->   "%back_pixel_probabili = fdiv float %tmp_15_i, %tmp_11_i" [otsu_threshold/src/otsu_threshold.h:163]   --->   Operation 287 'fdiv' 'back_pixel_probabili' <Predicate = true> <Delay = 7.19> <Core = "FDiv">   --->   Core 106 'FDiv' <Latency = 11> <II = 1> <Delay = 7.19> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
+ST_26 : Operation 288 [9/12] (7.19ns)   --->   "%front_gray_average = fdiv float %tmp_16_i, %tmp_14_i" [otsu_threshold/src/otsu_threshold.h:167]   --->   Operation 288 'fdiv' 'front_gray_average' <Predicate = true> <Delay = 7.19> <Core = "FDiv">   --->   Core 106 'FDiv' <Latency = 11> <II = 1> <Delay = 7.19> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
+ST_26 : Operation 289 [9/12] (7.19ns)   --->   "%back_gray_average = fdiv float %tmp_17_i, %tmp_15_i" [otsu_threshold/src/otsu_threshold.h:169]   --->   Operation 289 'fdiv' 'back_gray_average' <Predicate = true> <Delay = 7.19> <Core = "FDiv">   --->   Core 106 'FDiv' <Latency = 11> <II = 1> <Delay = 7.19> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
+ST_26 : Operation 290 [9/12] (7.19ns)   --->   "%total_gray_average = fdiv float %tmp_18_i, %tmp_11_i" [otsu_threshold/src/otsu_threshold.h:171]   --->   Operation 290 'fdiv' 'total_gray_average' <Predicate = true> <Delay = 7.19> <Core = "FDiv">   --->   Core 106 'FDiv' <Latency = 11> <II = 1> <Delay = 7.19> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
+
+State 27 <SV = 19> <Delay = 7.19>
+ST_27 : Operation 291 [8/12] (7.19ns)   --->   "%front_pixel_probabil = fdiv float %tmp_14_i, %tmp_11_i" [otsu_threshold/src/otsu_threshold.h:161]   --->   Operation 291 'fdiv' 'front_pixel_probabil' <Predicate = true> <Delay = 7.19> <Core = "FDiv">   --->   Core 106 'FDiv' <Latency = 11> <II = 1> <Delay = 7.19> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
+ST_27 : Operation 292 [8/12] (7.19ns)   --->   "%back_pixel_probabili = fdiv float %tmp_15_i, %tmp_11_i" [otsu_threshold/src/otsu_threshold.h:163]   --->   Operation 292 'fdiv' 'back_pixel_probabili' <Predicate = true> <Delay = 7.19> <Core = "FDiv">   --->   Core 106 'FDiv' <Latency = 11> <II = 1> <Delay = 7.19> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
+ST_27 : Operation 293 [8/12] (7.19ns)   --->   "%front_gray_average = fdiv float %tmp_16_i, %tmp_14_i" [otsu_threshold/src/otsu_threshold.h:167]   --->   Operation 293 'fdiv' 'front_gray_average' <Predicate = true> <Delay = 7.19> <Core = "FDiv">   --->   Core 106 'FDiv' <Latency = 11> <II = 1> <Delay = 7.19> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
+ST_27 : Operation 294 [8/12] (7.19ns)   --->   "%back_gray_average = fdiv float %tmp_17_i, %tmp_15_i" [otsu_threshold/src/otsu_threshold.h:169]   --->   Operation 294 'fdiv' 'back_gray_average' <Predicate = true> <Delay = 7.19> <Core = "FDiv">   --->   Core 106 'FDiv' <Latency = 11> <II = 1> <Delay = 7.19> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
+ST_27 : Operation 295 [8/12] (7.19ns)   --->   "%total_gray_average = fdiv float %tmp_18_i, %tmp_11_i" [otsu_threshold/src/otsu_threshold.h:171]   --->   Operation 295 'fdiv' 'total_gray_average' <Predicate = true> <Delay = 7.19> <Core = "FDiv">   --->   Core 106 'FDiv' <Latency = 11> <II = 1> <Delay = 7.19> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
+
+State 28 <SV = 20> <Delay = 7.19>
+ST_28 : Operation 296 [7/12] (7.19ns)   --->   "%front_pixel_probabil = fdiv float %tmp_14_i, %tmp_11_i" [otsu_threshold/src/otsu_threshold.h:161]   --->   Operation 296 'fdiv' 'front_pixel_probabil' <Predicate = true> <Delay = 7.19> <Core = "FDiv">   --->   Core 106 'FDiv' <Latency = 11> <II = 1> <Delay = 7.19> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
+ST_28 : Operation 297 [7/12] (7.19ns)   --->   "%back_pixel_probabili = fdiv float %tmp_15_i, %tmp_11_i" [otsu_threshold/src/otsu_threshold.h:163]   --->   Operation 297 'fdiv' 'back_pixel_probabili' <Predicate = true> <Delay = 7.19> <Core = "FDiv">   --->   Core 106 'FDiv' <Latency = 11> <II = 1> <Delay = 7.19> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
+ST_28 : Operation 298 [7/12] (7.19ns)   --->   "%front_gray_average = fdiv float %tmp_16_i, %tmp_14_i" [otsu_threshold/src/otsu_threshold.h:167]   --->   Operation 298 'fdiv' 'front_gray_average' <Predicate = true> <Delay = 7.19> <Core = "FDiv">   --->   Core 106 'FDiv' <Latency = 11> <II = 1> <Delay = 7.19> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
+ST_28 : Operation 299 [7/12] (7.19ns)   --->   "%back_gray_average = fdiv float %tmp_17_i, %tmp_15_i" [otsu_threshold/src/otsu_threshold.h:169]   --->   Operation 299 'fdiv' 'back_gray_average' <Predicate = true> <Delay = 7.19> <Core = "FDiv">   --->   Core 106 'FDiv' <Latency = 11> <II = 1> <Delay = 7.19> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
+ST_28 : Operation 300 [7/12] (7.19ns)   --->   "%total_gray_average = fdiv float %tmp_18_i, %tmp_11_i" [otsu_threshold/src/otsu_threshold.h:171]   --->   Operation 300 'fdiv' 'total_gray_average' <Predicate = true> <Delay = 7.19> <Core = "FDiv">   --->   Core 106 'FDiv' <Latency = 11> <II = 1> <Delay = 7.19> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
+
+State 29 <SV = 21> <Delay = 7.19>
+ST_29 : Operation 301 [6/12] (7.19ns)   --->   "%front_pixel_probabil = fdiv float %tmp_14_i, %tmp_11_i" [otsu_threshold/src/otsu_threshold.h:161]   --->   Operation 301 'fdiv' 'front_pixel_probabil' <Predicate = true> <Delay = 7.19> <Core = "FDiv">   --->   Core 106 'FDiv' <Latency = 11> <II = 1> <Delay = 7.19> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
+ST_29 : Operation 302 [6/12] (7.19ns)   --->   "%back_pixel_probabili = fdiv float %tmp_15_i, %tmp_11_i" [otsu_threshold/src/otsu_threshold.h:163]   --->   Operation 302 'fdiv' 'back_pixel_probabili' <Predicate = true> <Delay = 7.19> <Core = "FDiv">   --->   Core 106 'FDiv' <Latency = 11> <II = 1> <Delay = 7.19> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
+ST_29 : Operation 303 [6/12] (7.19ns)   --->   "%front_gray_average = fdiv float %tmp_16_i, %tmp_14_i" [otsu_threshold/src/otsu_threshold.h:167]   --->   Operation 303 'fdiv' 'front_gray_average' <Predicate = true> <Delay = 7.19> <Core = "FDiv">   --->   Core 106 'FDiv' <Latency = 11> <II = 1> <Delay = 7.19> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
+ST_29 : Operation 304 [6/12] (7.19ns)   --->   "%back_gray_average = fdiv float %tmp_17_i, %tmp_15_i" [otsu_threshold/src/otsu_threshold.h:169]   --->   Operation 304 'fdiv' 'back_gray_average' <Predicate = true> <Delay = 7.19> <Core = "FDiv">   --->   Core 106 'FDiv' <Latency = 11> <II = 1> <Delay = 7.19> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
+ST_29 : Operation 305 [6/12] (7.19ns)   --->   "%total_gray_average = fdiv float %tmp_18_i, %tmp_11_i" [otsu_threshold/src/otsu_threshold.h:171]   --->   Operation 305 'fdiv' 'total_gray_average' <Predicate = true> <Delay = 7.19> <Core = "FDiv">   --->   Core 106 'FDiv' <Latency = 11> <II = 1> <Delay = 7.19> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
+
+State 30 <SV = 22> <Delay = 7.19>
+ST_30 : Operation 306 [5/12] (7.19ns)   --->   "%front_pixel_probabil = fdiv float %tmp_14_i, %tmp_11_i" [otsu_threshold/src/otsu_threshold.h:161]   --->   Operation 306 'fdiv' 'front_pixel_probabil' <Predicate = true> <Delay = 7.19> <Core = "FDiv">   --->   Core 106 'FDiv' <Latency = 11> <II = 1> <Delay = 7.19> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
+ST_30 : Operation 307 [5/12] (7.19ns)   --->   "%back_pixel_probabili = fdiv float %tmp_15_i, %tmp_11_i" [otsu_threshold/src/otsu_threshold.h:163]   --->   Operation 307 'fdiv' 'back_pixel_probabili' <Predicate = true> <Delay = 7.19> <Core = "FDiv">   --->   Core 106 'FDiv' <Latency = 11> <II = 1> <Delay = 7.19> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
+ST_30 : Operation 308 [5/12] (7.19ns)   --->   "%front_gray_average = fdiv float %tmp_16_i, %tmp_14_i" [otsu_threshold/src/otsu_threshold.h:167]   --->   Operation 308 'fdiv' 'front_gray_average' <Predicate = true> <Delay = 7.19> <Core = "FDiv">   --->   Core 106 'FDiv' <Latency = 11> <II = 1> <Delay = 7.19> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
+ST_30 : Operation 309 [5/12] (7.19ns)   --->   "%back_gray_average = fdiv float %tmp_17_i, %tmp_15_i" [otsu_threshold/src/otsu_threshold.h:169]   --->   Operation 309 'fdiv' 'back_gray_average' <Predicate = true> <Delay = 7.19> <Core = "FDiv">   --->   Core 106 'FDiv' <Latency = 11> <II = 1> <Delay = 7.19> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
+ST_30 : Operation 310 [5/12] (7.19ns)   --->   "%total_gray_average = fdiv float %tmp_18_i, %tmp_11_i" [otsu_threshold/src/otsu_threshold.h:171]   --->   Operation 310 'fdiv' 'total_gray_average' <Predicate = true> <Delay = 7.19> <Core = "FDiv">   --->   Core 106 'FDiv' <Latency = 11> <II = 1> <Delay = 7.19> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
+
+State 31 <SV = 23> <Delay = 7.19>
+ST_31 : Operation 311 [4/12] (7.19ns)   --->   "%front_pixel_probabil = fdiv float %tmp_14_i, %tmp_11_i" [otsu_threshold/src/otsu_threshold.h:161]   --->   Operation 311 'fdiv' 'front_pixel_probabil' <Predicate = true> <Delay = 7.19> <Core = "FDiv">   --->   Core 106 'FDiv' <Latency = 11> <II = 1> <Delay = 7.19> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
+ST_31 : Operation 312 [4/12] (7.19ns)   --->   "%back_pixel_probabili = fdiv float %tmp_15_i, %tmp_11_i" [otsu_threshold/src/otsu_threshold.h:163]   --->   Operation 312 'fdiv' 'back_pixel_probabili' <Predicate = true> <Delay = 7.19> <Core = "FDiv">   --->   Core 106 'FDiv' <Latency = 11> <II = 1> <Delay = 7.19> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
+ST_31 : Operation 313 [4/12] (7.19ns)   --->   "%front_gray_average = fdiv float %tmp_16_i, %tmp_14_i" [otsu_threshold/src/otsu_threshold.h:167]   --->   Operation 313 'fdiv' 'front_gray_average' <Predicate = true> <Delay = 7.19> <Core = "FDiv">   --->   Core 106 'FDiv' <Latency = 11> <II = 1> <Delay = 7.19> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
+ST_31 : Operation 314 [4/12] (7.19ns)   --->   "%back_gray_average = fdiv float %tmp_17_i, %tmp_15_i" [otsu_threshold/src/otsu_threshold.h:169]   --->   Operation 314 'fdiv' 'back_gray_average' <Predicate = true> <Delay = 7.19> <Core = "FDiv">   --->   Core 106 'FDiv' <Latency = 11> <II = 1> <Delay = 7.19> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
+ST_31 : Operation 315 [4/12] (7.19ns)   --->   "%total_gray_average = fdiv float %tmp_18_i, %tmp_11_i" [otsu_threshold/src/otsu_threshold.h:171]   --->   Operation 315 'fdiv' 'total_gray_average' <Predicate = true> <Delay = 7.19> <Core = "FDiv">   --->   Core 106 'FDiv' <Latency = 11> <II = 1> <Delay = 7.19> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
+
+State 32 <SV = 24> <Delay = 7.19>
+ST_32 : Operation 316 [3/12] (7.19ns)   --->   "%front_pixel_probabil = fdiv float %tmp_14_i, %tmp_11_i" [otsu_threshold/src/otsu_threshold.h:161]   --->   Operation 316 'fdiv' 'front_pixel_probabil' <Predicate = true> <Delay = 7.19> <Core = "FDiv">   --->   Core 106 'FDiv' <Latency = 11> <II = 1> <Delay = 7.19> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
+ST_32 : Operation 317 [3/12] (7.19ns)   --->   "%back_pixel_probabili = fdiv float %tmp_15_i, %tmp_11_i" [otsu_threshold/src/otsu_threshold.h:163]   --->   Operation 317 'fdiv' 'back_pixel_probabili' <Predicate = true> <Delay = 7.19> <Core = "FDiv">   --->   Core 106 'FDiv' <Latency = 11> <II = 1> <Delay = 7.19> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
+ST_32 : Operation 318 [3/12] (7.19ns)   --->   "%front_gray_average = fdiv float %tmp_16_i, %tmp_14_i" [otsu_threshold/src/otsu_threshold.h:167]   --->   Operation 318 'fdiv' 'front_gray_average' <Predicate = true> <Delay = 7.19> <Core = "FDiv">   --->   Core 106 'FDiv' <Latency = 11> <II = 1> <Delay = 7.19> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
+ST_32 : Operation 319 [3/12] (7.19ns)   --->   "%back_gray_average = fdiv float %tmp_17_i, %tmp_15_i" [otsu_threshold/src/otsu_threshold.h:169]   --->   Operation 319 'fdiv' 'back_gray_average' <Predicate = true> <Delay = 7.19> <Core = "FDiv">   --->   Core 106 'FDiv' <Latency = 11> <II = 1> <Delay = 7.19> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
+ST_32 : Operation 320 [3/12] (7.19ns)   --->   "%total_gray_average = fdiv float %tmp_18_i, %tmp_11_i" [otsu_threshold/src/otsu_threshold.h:171]   --->   Operation 320 'fdiv' 'total_gray_average' <Predicate = true> <Delay = 7.19> <Core = "FDiv">   --->   Core 106 'FDiv' <Latency = 11> <II = 1> <Delay = 7.19> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
+
+State 33 <SV = 25> <Delay = 7.19>
+ST_33 : Operation 321 [2/12] (7.19ns)   --->   "%front_pixel_probabil = fdiv float %tmp_14_i, %tmp_11_i" [otsu_threshold/src/otsu_threshold.h:161]   --->   Operation 321 'fdiv' 'front_pixel_probabil' <Predicate = true> <Delay = 7.19> <Core = "FDiv">   --->   Core 106 'FDiv' <Latency = 11> <II = 1> <Delay = 7.19> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
+ST_33 : Operation 322 [2/12] (7.19ns)   --->   "%back_pixel_probabili = fdiv float %tmp_15_i, %tmp_11_i" [otsu_threshold/src/otsu_threshold.h:163]   --->   Operation 322 'fdiv' 'back_pixel_probabili' <Predicate = true> <Delay = 7.19> <Core = "FDiv">   --->   Core 106 'FDiv' <Latency = 11> <II = 1> <Delay = 7.19> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
+ST_33 : Operation 323 [2/12] (7.19ns)   --->   "%front_gray_average = fdiv float %tmp_16_i, %tmp_14_i" [otsu_threshold/src/otsu_threshold.h:167]   --->   Operation 323 'fdiv' 'front_gray_average' <Predicate = true> <Delay = 7.19> <Core = "FDiv">   --->   Core 106 'FDiv' <Latency = 11> <II = 1> <Delay = 7.19> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
+ST_33 : Operation 324 [2/12] (7.19ns)   --->   "%back_gray_average = fdiv float %tmp_17_i, %tmp_15_i" [otsu_threshold/src/otsu_threshold.h:169]   --->   Operation 324 'fdiv' 'back_gray_average' <Predicate = true> <Delay = 7.19> <Core = "FDiv">   --->   Core 106 'FDiv' <Latency = 11> <II = 1> <Delay = 7.19> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
+ST_33 : Operation 325 [2/12] (7.19ns)   --->   "%total_gray_average = fdiv float %tmp_18_i, %tmp_11_i" [otsu_threshold/src/otsu_threshold.h:171]   --->   Operation 325 'fdiv' 'total_gray_average' <Predicate = true> <Delay = 7.19> <Core = "FDiv">   --->   Core 106 'FDiv' <Latency = 11> <II = 1> <Delay = 7.19> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
+
+State 34 <SV = 26> <Delay = 7.19>
+ST_34 : Operation 326 [1/12] (7.19ns)   --->   "%front_pixel_probabil = fdiv float %tmp_14_i, %tmp_11_i" [otsu_threshold/src/otsu_threshold.h:161]   --->   Operation 326 'fdiv' 'front_pixel_probabil' <Predicate = true> <Delay = 7.19> <Core = "FDiv">   --->   Core 106 'FDiv' <Latency = 11> <II = 1> <Delay = 7.19> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
+ST_34 : Operation 327 [1/12] (7.19ns)   --->   "%back_pixel_probabili = fdiv float %tmp_15_i, %tmp_11_i" [otsu_threshold/src/otsu_threshold.h:163]   --->   Operation 327 'fdiv' 'back_pixel_probabili' <Predicate = true> <Delay = 7.19> <Core = "FDiv">   --->   Core 106 'FDiv' <Latency = 11> <II = 1> <Delay = 7.19> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
+ST_34 : Operation 328 [1/12] (7.19ns)   --->   "%front_gray_average = fdiv float %tmp_16_i, %tmp_14_i" [otsu_threshold/src/otsu_threshold.h:167]   --->   Operation 328 'fdiv' 'front_gray_average' <Predicate = true> <Delay = 7.19> <Core = "FDiv">   --->   Core 106 'FDiv' <Latency = 11> <II = 1> <Delay = 7.19> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
+ST_34 : Operation 329 [1/12] (7.19ns)   --->   "%back_gray_average = fdiv float %tmp_17_i, %tmp_15_i" [otsu_threshold/src/otsu_threshold.h:169]   --->   Operation 329 'fdiv' 'back_gray_average' <Predicate = true> <Delay = 7.19> <Core = "FDiv">   --->   Core 106 'FDiv' <Latency = 11> <II = 1> <Delay = 7.19> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
+ST_34 : Operation 330 [1/12] (7.19ns)   --->   "%total_gray_average = fdiv float %tmp_18_i, %tmp_11_i" [otsu_threshold/src/otsu_threshold.h:171]   --->   Operation 330 'fdiv' 'total_gray_average' <Predicate = true> <Delay = 7.19> <Core = "FDiv">   --->   Core 106 'FDiv' <Latency = 11> <II = 1> <Delay = 7.19> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
+
+State 35 <SV = 27> <Delay = 8.58>
+ST_35 : Operation 331 [4/4] (8.58ns)   --->   "%tmp_19_i = fsub float %front_gray_average, %total_gray_average" [otsu_threshold/src/otsu_threshold.h:174]   --->   Operation 331 'fsub' 'tmp_19_i' <Predicate = true> <Delay = 8.58> <Core = "FAddSub">   --->   Core 104 'FAddSub' <Latency = 3> <II = 1> <Delay = 8.58> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_35 : Operation 332 [4/4] (8.58ns)   --->   "%tmp_23_i = fsub float %back_gray_average, %total_gray_average" [otsu_threshold/src/otsu_threshold.h:174]   --->   Operation 332 'fsub' 'tmp_23_i' <Predicate = true> <Delay = 8.58> <Core = "FAddSub">   --->   Core 104 'FAddSub' <Latency = 3> <II = 1> <Delay = 8.58> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+
+State 36 <SV = 28> <Delay = 8.58>
+ST_36 : Operation 333 [3/4] (8.58ns)   --->   "%tmp_19_i = fsub float %front_gray_average, %total_gray_average" [otsu_threshold/src/otsu_threshold.h:174]   --->   Operation 333 'fsub' 'tmp_19_i' <Predicate = true> <Delay = 8.58> <Core = "FAddSub">   --->   Core 104 'FAddSub' <Latency = 3> <II = 1> <Delay = 8.58> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_36 : Operation 334 [3/4] (8.58ns)   --->   "%tmp_23_i = fsub float %back_gray_average, %total_gray_average" [otsu_threshold/src/otsu_threshold.h:174]   --->   Operation 334 'fsub' 'tmp_23_i' <Predicate = true> <Delay = 8.58> <Core = "FAddSub">   --->   Core 104 'FAddSub' <Latency = 3> <II = 1> <Delay = 8.58> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+
+State 37 <SV = 29> <Delay = 8.58>
+ST_37 : Operation 335 [2/4] (8.58ns)   --->   "%tmp_19_i = fsub float %front_gray_average, %total_gray_average" [otsu_threshold/src/otsu_threshold.h:174]   --->   Operation 335 'fsub' 'tmp_19_i' <Predicate = true> <Delay = 8.58> <Core = "FAddSub">   --->   Core 104 'FAddSub' <Latency = 3> <II = 1> <Delay = 8.58> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_37 : Operation 336 [2/4] (8.58ns)   --->   "%tmp_23_i = fsub float %back_gray_average, %total_gray_average" [otsu_threshold/src/otsu_threshold.h:174]   --->   Operation 336 'fsub' 'tmp_23_i' <Predicate = true> <Delay = 8.58> <Core = "FAddSub">   --->   Core 104 'FAddSub' <Latency = 3> <II = 1> <Delay = 8.58> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+
+State 38 <SV = 30> <Delay = 8.58>
+ST_38 : Operation 337 [1/4] (8.58ns)   --->   "%tmp_19_i = fsub float %front_gray_average, %total_gray_average" [otsu_threshold/src/otsu_threshold.h:174]   --->   Operation 337 'fsub' 'tmp_19_i' <Predicate = true> <Delay = 8.58> <Core = "FAddSub">   --->   Core 104 'FAddSub' <Latency = 3> <II = 1> <Delay = 8.58> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_38 : Operation 338 [1/4] (8.58ns)   --->   "%tmp_23_i = fsub float %back_gray_average, %total_gray_average" [otsu_threshold/src/otsu_threshold.h:174]   --->   Operation 338 'fsub' 'tmp_23_i' <Predicate = true> <Delay = 8.58> <Core = "FAddSub">   --->   Core 104 'FAddSub' <Latency = 3> <II = 1> <Delay = 8.58> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+
+State 39 <SV = 31> <Delay = 8.43>
+ST_39 : Operation 339 [3/3] (8.43ns)   --->   "%tmp_20_i = fmul float %front_pixel_probabil, %tmp_19_i" [otsu_threshold/src/otsu_threshold.h:174]   --->   Operation 339 'fmul' 'tmp_20_i' <Predicate = true> <Delay = 8.43> <Core = "FMul">   --->   Core 105 'FMul' <Latency = 2> <II = 1> <Delay = 8.43> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_39 : Operation 340 [3/3] (8.43ns)   --->   "%tmp_24_i = fmul float %back_pixel_probabili, %tmp_23_i" [otsu_threshold/src/otsu_threshold.h:174]   --->   Operation 340 'fmul' 'tmp_24_i' <Predicate = true> <Delay = 8.43> <Core = "FMul">   --->   Core 105 'FMul' <Latency = 2> <II = 1> <Delay = 8.43> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+
+State 40 <SV = 32> <Delay = 8.43>
+ST_40 : Operation 341 [2/3] (8.43ns)   --->   "%tmp_20_i = fmul float %front_pixel_probabil, %tmp_19_i" [otsu_threshold/src/otsu_threshold.h:174]   --->   Operation 341 'fmul' 'tmp_20_i' <Predicate = true> <Delay = 8.43> <Core = "FMul">   --->   Core 105 'FMul' <Latency = 2> <II = 1> <Delay = 8.43> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_40 : Operation 342 [2/3] (8.43ns)   --->   "%tmp_24_i = fmul float %back_pixel_probabili, %tmp_23_i" [otsu_threshold/src/otsu_threshold.h:174]   --->   Operation 342 'fmul' 'tmp_24_i' <Predicate = true> <Delay = 8.43> <Core = "FMul">   --->   Core 105 'FMul' <Latency = 2> <II = 1> <Delay = 8.43> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+
+State 41 <SV = 33> <Delay = 8.43>
+ST_41 : Operation 343 [1/3] (8.43ns)   --->   "%tmp_20_i = fmul float %front_pixel_probabil, %tmp_19_i" [otsu_threshold/src/otsu_threshold.h:174]   --->   Operation 343 'fmul' 'tmp_20_i' <Predicate = true> <Delay = 8.43> <Core = "FMul">   --->   Core 105 'FMul' <Latency = 2> <II = 1> <Delay = 8.43> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_41 : Operation 344 [1/3] (8.43ns)   --->   "%tmp_24_i = fmul float %back_pixel_probabili, %tmp_23_i" [otsu_threshold/src/otsu_threshold.h:174]   --->   Operation 344 'fmul' 'tmp_24_i' <Predicate = true> <Delay = 8.43> <Core = "FMul">   --->   Core 105 'FMul' <Latency = 2> <II = 1> <Delay = 8.43> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+
+State 42 <SV = 34> <Delay = 8.43>
+ST_42 : Operation 345 [3/3] (8.43ns)   --->   "%tmp_22_i = fmul float %tmp_20_i, %tmp_19_i" [otsu_threshold/src/otsu_threshold.h:174]   --->   Operation 345 'fmul' 'tmp_22_i' <Predicate = true> <Delay = 8.43> <Core = "FMul">   --->   Core 105 'FMul' <Latency = 2> <II = 1> <Delay = 8.43> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_42 : Operation 346 [3/3] (8.43ns)   --->   "%tmp_25_i = fmul float %tmp_24_i, %tmp_23_i" [otsu_threshold/src/otsu_threshold.h:174]   --->   Operation 346 'fmul' 'tmp_25_i' <Predicate = true> <Delay = 8.43> <Core = "FMul">   --->   Core 105 'FMul' <Latency = 2> <II = 1> <Delay = 8.43> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+
+State 43 <SV = 35> <Delay = 8.43>
+ST_43 : Operation 347 [2/3] (8.43ns)   --->   "%tmp_22_i = fmul float %tmp_20_i, %tmp_19_i" [otsu_threshold/src/otsu_threshold.h:174]   --->   Operation 347 'fmul' 'tmp_22_i' <Predicate = true> <Delay = 8.43> <Core = "FMul">   --->   Core 105 'FMul' <Latency = 2> <II = 1> <Delay = 8.43> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_43 : Operation 348 [2/3] (8.43ns)   --->   "%tmp_25_i = fmul float %tmp_24_i, %tmp_23_i" [otsu_threshold/src/otsu_threshold.h:174]   --->   Operation 348 'fmul' 'tmp_25_i' <Predicate = true> <Delay = 8.43> <Core = "FMul">   --->   Core 105 'FMul' <Latency = 2> <II = 1> <Delay = 8.43> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+
+State 44 <SV = 36> <Delay = 8.43>
+ST_44 : Operation 349 [1/3] (8.43ns)   --->   "%tmp_22_i = fmul float %tmp_20_i, %tmp_19_i" [otsu_threshold/src/otsu_threshold.h:174]   --->   Operation 349 'fmul' 'tmp_22_i' <Predicate = true> <Delay = 8.43> <Core = "FMul">   --->   Core 105 'FMul' <Latency = 2> <II = 1> <Delay = 8.43> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_44 : Operation 350 [1/3] (8.43ns)   --->   "%tmp_25_i = fmul float %tmp_24_i, %tmp_23_i" [otsu_threshold/src/otsu_threshold.h:174]   --->   Operation 350 'fmul' 'tmp_25_i' <Predicate = true> <Delay = 8.43> <Core = "FMul">   --->   Core 105 'FMul' <Latency = 2> <II = 1> <Delay = 8.43> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+
+State 45 <SV = 37> <Delay = 8.58>
+ST_45 : Operation 351 [4/4] (8.58ns)   --->   "%interclass_variance_4 = fadd float %tmp_22_i, %tmp_25_i" [otsu_threshold/src/otsu_threshold.h:174]   --->   Operation 351 'fadd' 'interclass_variance_4' <Predicate = true> <Delay = 8.58> <Core = "FAddSub">   --->   Core 104 'FAddSub' <Latency = 3> <II = 1> <Delay = 8.58> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+
+State 46 <SV = 38> <Delay = 8.58>
+ST_46 : Operation 352 [3/4] (8.58ns)   --->   "%interclass_variance_4 = fadd float %tmp_22_i, %tmp_25_i" [otsu_threshold/src/otsu_threshold.h:174]   --->   Operation 352 'fadd' 'interclass_variance_4' <Predicate = true> <Delay = 8.58> <Core = "FAddSub">   --->   Core 104 'FAddSub' <Latency = 3> <II = 1> <Delay = 8.58> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+
+State 47 <SV = 39> <Delay = 8.58>
+ST_47 : Operation 353 [2/4] (8.58ns)   --->   "%interclass_variance_4 = fadd float %tmp_22_i, %tmp_25_i" [otsu_threshold/src/otsu_threshold.h:174]   --->   Operation 353 'fadd' 'interclass_variance_4' <Predicate = true> <Delay = 8.58> <Core = "FAddSub">   --->   Core 104 'FAddSub' <Latency = 3> <II = 1> <Delay = 8.58> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+
+State 48 <SV = 40> <Delay = 8.58>
+ST_48 : Operation 354 [1/4] (8.58ns)   --->   "%interclass_variance_4 = fadd float %tmp_22_i, %tmp_25_i" [otsu_threshold/src/otsu_threshold.h:174]   --->   Operation 354 'fadd' 'interclass_variance_4' <Predicate = true> <Delay = 8.58> <Core = "FAddSub">   --->   Core 104 'FAddSub' <Latency = 3> <II = 1> <Delay = 8.58> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+
+State 49 <SV = 41> <Delay = 6.04>
+ST_49 : Operation 355 [1/1] (0.00ns)   --->   "%interclass_variance_1 = load float* %interclass_variance_s" [otsu_threshold/src/otsu_threshold.h:177]   --->   Operation 355 'load' 'interclass_variance_1' <Predicate = true> <Delay = 0.00>
+ST_49 : Operation 356 [1/1] (0.00ns)   --->   "%interclass_variance_2 = bitcast float %interclass_variance_4 to i32" [otsu_threshold/src/otsu_threshold.h:177]   --->   Operation 356 'bitcast' 'interclass_variance_2' <Predicate = true> <Delay = 0.00>
+ST_49 : Operation 357 [1/1] (0.00ns)   --->   "%tmp_5 = call i8 @_ssdm_op_PartSelect.i8.i32.i32.i32(i32 %interclass_variance_2, i32 23, i32 30)" [otsu_threshold/src/otsu_threshold.h:177]   --->   Operation 357 'partselect' 'tmp_5' <Predicate = true> <Delay = 0.00>
+ST_49 : Operation 358 [1/1] (0.00ns)   --->   "%tmp_2 = trunc i32 %interclass_variance_2 to i23" [otsu_threshold/src/otsu_threshold.h:177]   --->   Operation 358 'trunc' 'tmp_2' <Predicate = true> <Delay = 0.00>
+ST_49 : Operation 359 [1/1] (0.00ns)   --->   "%interclass_variance_3 = bitcast float %interclass_variance_1 to i32" [otsu_threshold/src/otsu_threshold.h:177]   --->   Operation 359 'bitcast' 'interclass_variance_3' <Predicate = true> <Delay = 0.00>
+ST_49 : Operation 360 [1/1] (0.00ns)   --->   "%tmp_7 = call i8 @_ssdm_op_PartSelect.i8.i32.i32.i32(i32 %interclass_variance_3, i32 23, i32 30)" [otsu_threshold/src/otsu_threshold.h:177]   --->   Operation 360 'partselect' 'tmp_7' <Predicate = true> <Delay = 0.00>
+ST_49 : Operation 361 [1/1] (0.00ns)   --->   "%tmp_6 = trunc i32 %interclass_variance_3 to i23" [otsu_threshold/src/otsu_threshold.h:177]   --->   Operation 361 'trunc' 'tmp_6' <Predicate = true> <Delay = 0.00>
+ST_49 : Operation 362 [1/1] (1.31ns)   --->   "%notlhs = icmp ne i8 %tmp_5, -1" [otsu_threshold/src/otsu_threshold.h:177]   --->   Operation 362 'icmp' 'notlhs' <Predicate = true> <Delay = 1.31> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 2.02> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_49 : Operation 363 [1/1] (2.02ns)   --->   "%notrhs = icmp eq i23 %tmp_2, 0" [otsu_threshold/src/otsu_threshold.h:177]   --->   Operation 363 'icmp' 'notrhs' <Predicate = true> <Delay = 2.02> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 2.02> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_49 : Operation 364 [1/1] (0.00ns) (grouped into LUT with out node tmp_11)   --->   "%tmp_9 = or i1 %notrhs, %notlhs" [otsu_threshold/src/otsu_threshold.h:177]   --->   Operation 364 'or' 'tmp_9' <Predicate = true> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.80> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_49 : Operation 365 [1/1] (1.31ns)   --->   "%notlhs1 = icmp ne i8 %tmp_7, -1" [otsu_threshold/src/otsu_threshold.h:177]   --->   Operation 365 'icmp' 'notlhs1' <Predicate = true> <Delay = 1.31> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 2.02> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_49 : Operation 366 [1/1] (2.02ns)   --->   "%notrhs1 = icmp eq i23 %tmp_6, 0" [otsu_threshold/src/otsu_threshold.h:177]   --->   Operation 366 'icmp' 'notrhs1' <Predicate = true> <Delay = 2.02> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 2.02> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_49 : Operation 367 [1/1] (0.00ns) (grouped into LUT with out node tmp_11)   --->   "%tmp_s = or i1 %notrhs1, %notlhs1" [otsu_threshold/src/otsu_threshold.h:177]   --->   Operation 367 'or' 'tmp_s' <Predicate = true> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.80> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_49 : Operation 368 [1/1] (0.00ns) (grouped into LUT with out node tmp_11)   --->   "%tmp_8 = and i1 %tmp_9, %tmp_s" [otsu_threshold/src/otsu_threshold.h:177]   --->   Operation 368 'and' 'tmp_8' <Predicate = true> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.80> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_49 : Operation 369 [1/1] (5.24ns)   --->   "%tmp_10 = fcmp ogt float %interclass_variance_4, %interclass_variance_1" [otsu_threshold/src/otsu_threshold.h:177]   --->   Operation 369 'fcmp' 'tmp_10' <Predicate = true> <Delay = 5.24> <Core = "FCmp">   --->   Core 110 'FCmp' <Latency = 0> <II = 1> <Delay = 5.24> <FuncUnit> <Opcode : 'fcmp'> <InPorts = 2> <OutPorts = 1>
+ST_49 : Operation 370 [1/1] (0.80ns) (out node of the LUT)   --->   "%tmp_11 = and i1 %tmp_8, %tmp_10" [otsu_threshold/src/otsu_threshold.h:177]   --->   Operation 370 'and' 'tmp_11' <Predicate = true> <Delay = 0.80> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.80> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_49 : Operation 371 [1/1] (0.00ns)   --->   "br i1 %tmp_11, label %5, label %.preheader660.i.backedge" [otsu_threshold/src/otsu_threshold.h:177]   --->   Operation 371 'br' <Predicate = true> <Delay = 0.00>
+ST_49 : Operation 372 [1/1] (0.00ns)   --->   "%tmp_12 = trunc i9 %val_assign to i8" [otsu_threshold/src/otsu_threshold.h:179]   --->   Operation 372 'trunc' 'tmp_12' <Predicate = (tmp_11)> <Delay = 0.00>
+ST_49 : Operation 373 [1/1] (0.00ns)   --->   "store i8 %tmp_12, i8* @hls_threshold_V, align 1" [otsu_threshold/src/otsu_threshold.h:179]   --->   Operation 373 'store' <Predicate = (tmp_11)> <Delay = 0.00>
+ST_49 : Operation 374 [1/1] (0.00ns)   --->   "store float %interclass_variance_4, float* %interclass_variance_s" [otsu_threshold/src/otsu_threshold.h:178]   --->   Operation 374 'store' <Predicate = (tmp_11)> <Delay = 0.00>
+ST_49 : Operation 375 [1/1] (0.00ns)   --->   "br label %.preheader660.i.backedge" [otsu_threshold/src/otsu_threshold.h:180]   --->   Operation 375 'br' <Predicate = (tmp_11)> <Delay = 0.00>
+ST_49 : Operation 376 [1/1] (0.00ns)   --->   "br label %.preheader660.i"   --->   Operation 376 'br' <Predicate = true> <Delay = 0.00>
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 10ns, clock uncertainty: 1.25ns.
+
+ <State 1>: 3.4ns
+The critical path consists of the following:
+	fifo read on port 'p_src_rows_V' [11]  (3.4 ns)
+
+ <State 2>: 2.77ns
+The critical path consists of the following:
+	'phi' operation ('i') with incoming values : ('i', otsu_threshold/src/otsu_threshold.h:39) [15]  (0 ns)
+	'getelementptr' operation ('hist_out_V_addr', otsu_threshold/src/otsu_threshold.h:40) [22]  (0 ns)
+	'store' operation (otsu_threshold/src/otsu_threshold.h:40) of constant 0 on array 'hist_out.V', otsu_threshold/src/otsu_threshold.h:18 [23]  (2.77 ns)
+
+ <State 3>: 2.77ns
+The critical path consists of the following:
+	'icmp' operation ('tmp_7_i', otsu_threshold/src/otsu_threshold.h:48) [48]  (1.97 ns)
+	blocking operation 0.8 ns on control path)
+
+ <State 4>: 1.97ns
+The critical path consists of the following:
+	'phi' operation ('j') with incoming values : ('j', otsu_threshold/src/otsu_threshold.h:50) [57]  (0 ns)
+	'icmp' operation ('tmp_8_i', otsu_threshold/src/otsu_threshold.h:50) [60]  (1.97 ns)
+
+ <State 5>: 3.4ns
+The critical path consists of the following:
+	fifo read on port 'p_src_data_stream_V' (otsu_threshold/src/otsu_threshold.h:58) [77]  (3.4 ns)
+
+ <State 6>: 7.72ns
+The critical path consists of the following:
+	'load' operation ('addr_win.val[0].V[1]') on local variable 'addr_win.val[0].V[1]' [58]  (0 ns)
+	'icmp' operation ('tmp_21_i', otsu_threshold/src/otsu_threshold.h:63) [82]  (1.31 ns)
+	'or' operation ('sel_tmp6_demorgan', otsu_threshold/src/otsu_threshold.h:63) [91]  (0 ns)
+	'xor' operation ('sel_tmp6', otsu_threshold/src/otsu_threshold.h:63) [92]  (0 ns)
+	'and' operation ('sel_tmp7', otsu_threshold/src/otsu_threshold.h:63) [93]  (0.8 ns)
+	'or' operation ('tmp_4', otsu_threshold/src/otsu_threshold.h:63) [95]  (0.8 ns)
+	'select' operation ('p_2_i', otsu_threshold/src/otsu_threshold.h:63) [96]  (0.8 ns)
+	'add' operation ('ret.V', otsu_threshold/src/otsu_threshold.h:78) [100]  (0.768 ns)
+	'icmp' operation ('tmp_51_i', otsu_threshold/src/otsu_threshold.h:84) [101]  (0.98 ns)
+	'select' operation ('p_0338_2_be_i', otsu_threshold/src/otsu_threshold.h:84) [104]  (0 ns)
+	'select' operation ('addr_V_1_0338_2_be_s', otsu_threshold/src/otsu_threshold.h:84) [109]  (0.448 ns)
+	'select' operation ('p_0338_2_be_2_i', otsu_threshold/src/otsu_threshold.h:84) [114]  (0.448 ns)
+	'select' operation ('storemerge_i', otsu_threshold/src/otsu_threshold.h:100) [124]  (0 ns)
+	'select' operation ('sel_tmp8', otsu_threshold/src/otsu_threshold.h:100) [130]  (0.448 ns)
+	'select' operation ('addr_win_val_V_0_0_2', otsu_threshold/src/otsu_threshold.h:100) [131]  (0.448 ns)
+	'store' operation (otsu_threshold/src/otsu_threshold.h:100) of variable 'addr_win_val_V_0_0_2', otsu_threshold/src/otsu_threshold.h:100 on local variable 'addr_win.val[0].V[1]' [143]  (0.466 ns)
+
+ <State 7>: 6.03ns
+The critical path consists of the following:
+	'load' operation ('hist_out_V_load', otsu_threshold/src/otsu_threshold.h:95) on array 'hist_out.V', otsu_threshold/src/otsu_threshold.h:18 [119]  (2.77 ns)
+	'add' operation ('hist_win.val[0].V[0]', otsu_threshold/src/otsu_threshold.h:95) [120]  (1.58 ns)
+	'select' operation ('sel_tmp9', otsu_threshold/src/otsu_threshold.h:100) [126]  (0.607 ns)
+	'select' operation ('hist_win_val_V_0_0_2', otsu_threshold/src/otsu_threshold.h:100) [129]  (0.607 ns)
+	'store' operation (otsu_threshold/src/otsu_threshold.h:100) of variable 'hist_win_val_V_0_0_2', otsu_threshold/src/otsu_threshold.h:100 on local variable 'hist_win_val_V_0_0_i' [139]  (0.466 ns)
+
+ <State 8>: 0ns
+The critical path consists of the following:
+
+ <State 9>: 3.89ns
+The critical path consists of the following:
+	'phi' operation ('m') with incoming values : ('m', otsu_threshold/src/otsu_threshold.h:112) [154]  (0 ns)
+	'icmp' operation ('cond_i', otsu_threshold/src/otsu_threshold.h:114) [166]  (0.508 ns)
+	'select' operation ('hist_win_val_V_load_s', otsu_threshold/src/otsu_threshold.h:114) [169]  (0.607 ns)
+	'store' operation (otsu_threshold/src/otsu_threshold.h:114) of variable 'hist_win_val_V_load_s', otsu_threshold/src/otsu_threshold.h:114 on array 'hist_out.V', otsu_threshold/src/otsu_threshold.h:18 [171]  (2.77 ns)
+
+ <State 10>: 7.05ns
+The critical path consists of the following:
+	'mul' operation ('tmp_10_i', otsu_threshold/src/otsu_threshold.h:161) [176]  (7.05 ns)
+
+ <State 11>: 8.08ns
+The critical path consists of the following:
+	'sitofp' operation ('tmp_11_i', otsu_threshold/src/otsu_threshold.h:161) [177]  (8.08 ns)
+
+ <State 12>: 8.08ns
+The critical path consists of the following:
+	'sitofp' operation ('tmp_11_i', otsu_threshold/src/otsu_threshold.h:161) [177]  (8.08 ns)
+
+ <State 13>: 8.08ns
+The critical path consists of the following:
+	'sitofp' operation ('tmp_11_i', otsu_threshold/src/otsu_threshold.h:161) [177]  (8.08 ns)
+
+ <State 14>: 8.08ns
+The critical path consists of the following:
+	'sitofp' operation ('tmp_11_i', otsu_threshold/src/otsu_threshold.h:161) [177]  (8.08 ns)
+
+ <State 15>: 2.43ns
+The critical path consists of the following:
+	'icmp' operation ('exitcond5_i', otsu_threshold/src/otsu_threshold.h:138) [181]  (1.63 ns)
+	blocking operation 0.8 ns on control path)
+
+ <State 16>: 2.77ns
+The critical path consists of the following:
+	'phi' operation ('j') with incoming values : ('j', otsu_threshold/src/otsu_threshold.h:145) [192]  (0 ns)
+	'getelementptr' operation ('hist_out_V_addr_3', otsu_threshold/src/otsu_threshold.h:155) [201]  (0 ns)
+	'load' operation ('hist_out_V_load_1', otsu_threshold/src/otsu_threshold.h:155) on array 'hist_out.V', otsu_threshold/src/otsu_threshold.h:18 [202]  (2.77 ns)
+
+ <State 17>: 8.32ns
+The critical path consists of the following:
+	'load' operation ('hist_out_V_load_1', otsu_threshold/src/otsu_threshold.h:155) on array 'hist_out.V', otsu_threshold/src/otsu_threshold.h:18 [202]  (2.77 ns)
+	'mul' operation of DSP[206] ('tmp_32_i', otsu_threshold/src/otsu_threshold.h:156) [206]  (5.55 ns)
+
+ <State 18>: 2.6ns
+The critical path consists of the following:
+	'add' operation ('front_gray_count', otsu_threshold/src/otsu_threshold.h:150) [210]  (1.9 ns)
+	'select' operation ('front_gray_count', otsu_threshold/src/otsu_threshold.h:150) [213]  (0.705 ns)
+
+ <State 19>: 8.08ns
+The critical path consists of the following:
+	'sitofp' operation ('tmp_14_i', otsu_threshold/src/otsu_threshold.h:161) [218]  (8.08 ns)
+
+ <State 20>: 8.08ns
+The critical path consists of the following:
+	'sitofp' operation ('tmp_14_i', otsu_threshold/src/otsu_threshold.h:161) [218]  (8.08 ns)
+
+ <State 21>: 8.08ns
+The critical path consists of the following:
+	'sitofp' operation ('tmp_14_i', otsu_threshold/src/otsu_threshold.h:161) [218]  (8.08 ns)
+
+ <State 22>: 8.08ns
+The critical path consists of the following:
+	'sitofp' operation ('tmp_14_i', otsu_threshold/src/otsu_threshold.h:161) [218]  (8.08 ns)
+
+ <State 23>: 7.2ns
+The critical path consists of the following:
+	'fdiv' operation ('front_pixel_probability', otsu_threshold/src/otsu_threshold.h:161) [219]  (7.2 ns)
+
+ <State 24>: 7.2ns
+The critical path consists of the following:
+	'fdiv' operation ('front_pixel_probability', otsu_threshold/src/otsu_threshold.h:161) [219]  (7.2 ns)
+
+ <State 25>: 7.2ns
+The critical path consists of the following:
+	'fdiv' operation ('front_pixel_probability', otsu_threshold/src/otsu_threshold.h:161) [219]  (7.2 ns)
+
+ <State 26>: 7.2ns
+The critical path consists of the following:
+	'fdiv' operation ('front_pixel_probability', otsu_threshold/src/otsu_threshold.h:161) [219]  (7.2 ns)
+
+ <State 27>: 7.2ns
+The critical path consists of the following:
+	'fdiv' operation ('front_pixel_probability', otsu_threshold/src/otsu_threshold.h:161) [219]  (7.2 ns)
+
+ <State 28>: 7.2ns
+The critical path consists of the following:
+	'fdiv' operation ('front_pixel_probability', otsu_threshold/src/otsu_threshold.h:161) [219]  (7.2 ns)
+
+ <State 29>: 7.2ns
+The critical path consists of the following:
+	'fdiv' operation ('front_pixel_probability', otsu_threshold/src/otsu_threshold.h:161) [219]  (7.2 ns)
+
+ <State 30>: 7.2ns
+The critical path consists of the following:
+	'fdiv' operation ('front_pixel_probability', otsu_threshold/src/otsu_threshold.h:161) [219]  (7.2 ns)
+
+ <State 31>: 7.2ns
+The critical path consists of the following:
+	'fdiv' operation ('front_pixel_probability', otsu_threshold/src/otsu_threshold.h:161) [219]  (7.2 ns)
+
+ <State 32>: 7.2ns
+The critical path consists of the following:
+	'fdiv' operation ('front_pixel_probability', otsu_threshold/src/otsu_threshold.h:161) [219]  (7.2 ns)
+
+ <State 33>: 7.2ns
+The critical path consists of the following:
+	'fdiv' operation ('front_pixel_probability', otsu_threshold/src/otsu_threshold.h:161) [219]  (7.2 ns)
+
+ <State 34>: 7.2ns
+The critical path consists of the following:
+	'fdiv' operation ('front_pixel_probability', otsu_threshold/src/otsu_threshold.h:161) [219]  (7.2 ns)
+
+ <State 35>: 8.59ns
+The critical path consists of the following:
+	'fsub' operation ('tmp_19_i', otsu_threshold/src/otsu_threshold.h:174) [229]  (8.59 ns)
+
+ <State 36>: 8.59ns
+The critical path consists of the following:
+	'fsub' operation ('tmp_19_i', otsu_threshold/src/otsu_threshold.h:174) [229]  (8.59 ns)
+
+ <State 37>: 8.59ns
+The critical path consists of the following:
+	'fsub' operation ('tmp_19_i', otsu_threshold/src/otsu_threshold.h:174) [229]  (8.59 ns)
+
+ <State 38>: 8.59ns
+The critical path consists of the following:
+	'fsub' operation ('tmp_19_i', otsu_threshold/src/otsu_threshold.h:174) [229]  (8.59 ns)
+
+ <State 39>: 8.43ns
+The critical path consists of the following:
+	'fmul' operation ('tmp_20_i', otsu_threshold/src/otsu_threshold.h:174) [230]  (8.43 ns)
+
+ <State 40>: 8.43ns
+The critical path consists of the following:
+	'fmul' operation ('tmp_20_i', otsu_threshold/src/otsu_threshold.h:174) [230]  (8.43 ns)
+
+ <State 41>: 8.43ns
+The critical path consists of the following:
+	'fmul' operation ('tmp_20_i', otsu_threshold/src/otsu_threshold.h:174) [230]  (8.43 ns)
+
+ <State 42>: 8.43ns
+The critical path consists of the following:
+	'fmul' operation ('tmp_22_i', otsu_threshold/src/otsu_threshold.h:174) [231]  (8.43 ns)
+
+ <State 43>: 8.43ns
+The critical path consists of the following:
+	'fmul' operation ('tmp_22_i', otsu_threshold/src/otsu_threshold.h:174) [231]  (8.43 ns)
+
+ <State 44>: 8.43ns
+The critical path consists of the following:
+	'fmul' operation ('tmp_22_i', otsu_threshold/src/otsu_threshold.h:174) [231]  (8.43 ns)
+
+ <State 45>: 8.59ns
+The critical path consists of the following:
+	'fadd' operation ('interclass_variance_tmp', otsu_threshold/src/otsu_threshold.h:174) [235]  (8.59 ns)
+
+ <State 46>: 8.59ns
+The critical path consists of the following:
+	'fadd' operation ('interclass_variance_tmp', otsu_threshold/src/otsu_threshold.h:174) [235]  (8.59 ns)
+
+ <State 47>: 8.59ns
+The critical path consists of the following:
+	'fadd' operation ('interclass_variance_tmp', otsu_threshold/src/otsu_threshold.h:174) [235]  (8.59 ns)
+
+ <State 48>: 8.59ns
+The critical path consists of the following:
+	'fadd' operation ('interclass_variance_tmp', otsu_threshold/src/otsu_threshold.h:174) [235]  (8.59 ns)
+
+ <State 49>: 6.05ns
+The critical path consists of the following:
+	'load' operation ('interclass_variance_1', otsu_threshold/src/otsu_threshold.h:177) on local variable 'interclass_variance_max' [217]  (0 ns)
+	'fcmp' operation ('tmp_10', otsu_threshold/src/otsu_threshold.h:177) [249]  (5.25 ns)
+	'and' operation ('tmp_11', otsu_threshold/src/otsu_threshold.h:177) [250]  (0.8 ns)
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+	State 4
+	State 5
+	State 6
+	State 7
+	State 8
+	State 9
+	State 10
+	State 11
+	State 12
+	State 13
+	State 14
+	State 15
+	State 16
+	State 17
+	State 18
+	State 19
+	State 20
+	State 21
+	State 22
+	State 23
+	State 24
+	State 25
+	State 26
+	State 27
+	State 28
+	State 29
+	State 30
+	State 31
+	State 32
+	State 33
+	State 34
+	State 35
+	State 36
+	State 37
+	State 38
+	State 39
+	State 40
+	State 41
+	State 42
+	State 43
+	State 44
+	State 45
+	State 46
+	State 47
+	State 48
+	State 49
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

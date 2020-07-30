@@ -1,0 +1,51 @@
+<profile>
+
+<section name = "Vivado HLS Report for 'ov5640_otsu_threshold'" level="0">
+<item name = "Date">Mon Mar 30 11:11:49 2020
+</item>
+<item name = "Version">2018.3 (Build 2405991 on Thu Dec 06 23:56:15 MST 2018)</item>
+<item name = "Project">otsu_threshold</item>
+<item name = "Solution">solution1</item>
+<item name = "Product family">zynq</item>
+<item name = "Target device">xc7z020clg400-2</item>
+</section>
+
+<section name = "Performance Estimates" level="0">
+<item name = "Timing (ns)">
+<section name = "" level="1">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="4">Clock, Target, Estimated, Uncertainty</keys>
+<column name="ap_clk">10.00, 10.386, 1.25</column>
+</table>
+</item>
+</section>
+</item>
+<item name = "Latency (clock cycles)">
+<section name = "" level="1">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="6">, min, max, min, max, Type</keys>
+<column name="">205330, 1028530, 205324, 1028524, dataflow</column>
+</table>
+</item>
+<item name = "Detail">
+<section name = "" level="1">
+<item name = "Instance"><table name="" hasTotal="0">
+<keys size="7">Instance, Module, min, max, min, max, Type</keys>
+<column name="grp_Threshold_fu_462">Threshold, 205323, 1028523, 205323, 1028523, none</column>
+<column name="grp_AXIvideo2Mat_fu_472">AXIvideo2Mat, 3, 823203, 3, 823203, none</column>
+<column name="grp_Mat2AXIvideo_fu_497">Mat2AXIvideo, 1, 822401, 1, 822401, none</column>
+<column name="grp_CvtColor_fu_520">CvtColor, 1, 824001, 1, 824001, none</column>
+<column name="grp_CvtColor_1_fu_530">CvtColor_1, 1, 821601, 1, 821601, none</column>
+<column name="StgValue_33_Block_Mat_exit49_pro_fu_540">Block_Mat_exit49_pro, 0, 0, 0, 0, none</column>
+</table>
+</item>
+<item name = "Loop"><table name="" hasTotal="0">
+<keys size="8">Loop Name, min, max, Latency, achieved, target, Count, Pipelined</keys>
+</table>
+</item>
+</section>
+</item>
+</section>
+</item>
+</section>
+</profile>

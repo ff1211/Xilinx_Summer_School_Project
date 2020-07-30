@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<autopilotfilemapping:AutoPilotFileMapping xmlns:autopilotfilemapping="www.autoesl.com/autopilotfilemapping">
+  <source>
+    <originFiles name="otsu_threshold.h" path="C:\Users\Administrator\Desktop\otsu_threshold\otsu_threshold\src\otsu_threshold.h"/>
+    <originFiles name="otsu_threshold.cpp" path="C:\Users\Administrator\Desktop\otsu_threshold\otsu_threshold\src\otsu_threshold.cpp"/>
+  </source>
+  <testbench>
+    <originFiles name="lena.jpg" path="C:\Users\Administrator\Desktop\otsu_threshold\otsu_threshold\src\lena.jpg"/>
+    <originFiles name="otsu_threshold_tb.cpp" path="C:\Users\Administrator\Desktop\otsu_threshold\otsu_threshold\src\otsu_threshold_tb.cpp"/>
+  </testbench>
+</autopilotfilemapping:AutoPilotFileMapping>
