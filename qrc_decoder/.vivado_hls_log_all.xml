@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<vivadoHLSLog:LogRoot xmlns:vivadoHLSLog="www.xilinx.com/vivadoHLSLog">
+  <errorLogs>
+    <logs>
+      <synLog/>
+      <simLog/>
+      <mgLog/>
+      <packageLog/>
+      <csimLog/>
+    </logs>
+  </errorLogs>
+  <warningLogs>
+    <logs>
+      <synLog>
+        <logs message="WARNING: [RTGEN 206-101] Port 'qrc_decoder/dataout' has no fanin or fanout and is left dangling.&#xD;&#xA;               Please use C simulation to confirm this function argument can be read from or written to." projectName="qrc_decoder" solutionName="solution1" date="2020-08-01T23:36:34.457+0800" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Port 'qrc_decoder/pdata_q1' has no fanin or fanout and is left dangling.&#xD;&#xA;               Please use C simulation to confirm this function argument can be read from or written to." projectName="qrc_decoder" solutionName="solution1" date="2020-08-01T23:36:34.446+0800" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Setting dangling out port 'qrc_decoder/pdata_d1' to 0." projectName="qrc_decoder" solutionName="solution1" date="2020-08-01T23:36:34.435+0800" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Port 'qrc_decoder/pdata_d1' has no fanin or fanout and is left dangling.&#xD;&#xA;               Please use C simulation to confirm this function argument can be read from or written to." projectName="qrc_decoder" solutionName="solution1" date="2020-08-01T23:36:34.424+0800" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Setting dangling out port 'qrc_decoder/pdata_we1' to 0." projectName="qrc_decoder" solutionName="solution1" date="2020-08-01T23:36:34.414+0800" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Port 'qrc_decoder/pdata_we1' has no fanin or fanout and is left dangling.&#xD;&#xA;               Please use C simulation to confirm this function argument can be read from or written to." projectName="qrc_decoder" solutionName="solution1" date="2020-08-01T23:36:34.405+0800" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Setting dangling out port 'qrc_decoder/pdata_ce1' to 0." projectName="qrc_decoder" solutionName="solution1" date="2020-08-01T23:36:34.396+0800" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Port 'qrc_decoder/pdata_ce1' has no fanin or fanout and is left dangling.&#xD;&#xA;               Please use C simulation to confirm this function argument can be read from or written to." projectName="qrc_decoder" solutionName="solution1" date="2020-08-01T23:36:34.386+0800" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Setting dangling out port 'qrc_decoder/pdata_address1' to 0." projectName="qrc_decoder" solutionName="solution1" date="2020-08-01T23:36:34.377+0800" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Port 'qrc_decoder/pdata_address1' has no fanin or fanout and is left dangling.&#xD;&#xA;               Please use C simulation to confirm this function argument can be read from or written to." projectName="qrc_decoder" solutionName="solution1" date="2020-08-01T23:36:34.367+0800" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Port 'qrc_decoder/pdata_q0' has no fanin or fanout and is left dangling.&#xD;&#xA;               Please use C simulation to confirm this function argument can be read from or written to." projectName="qrc_decoder" solutionName="solution1" date="2020-08-01T23:36:34.359+0800" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Setting dangling out port 'qrc_decoder/pdata_d0' to 0." projectName="qrc_decoder" solutionName="solution1" date="2020-08-01T23:36:34.347+0800" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Port 'qrc_decoder/pdata_d0' has no fanin or fanout and is left dangling.&#xD;&#xA;               Please use C simulation to confirm this function argument can be read from or written to." projectName="qrc_decoder" solutionName="solution1" date="2020-08-01T23:36:34.336+0800" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Setting dangling out port 'qrc_decoder/pdata_we0' to 0." projectName="qrc_decoder" solutionName="solution1" date="2020-08-01T23:36:34.326+0800" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Port 'qrc_decoder/pdata_we0' has no fanin or fanout and is left dangling.&#xD;&#xA;               Please use C simulation to confirm this function argument can be read from or written to." projectName="qrc_decoder" solutionName="solution1" date="2020-08-01T23:36:34.314+0800" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Setting dangling out port 'qrc_decoder/pdata_ce0' to 0." projectName="qrc_decoder" solutionName="solution1" date="2020-08-01T23:36:34.304+0800" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Port 'qrc_decoder/pdata_ce0' has no fanin or fanout and is left dangling.&#xD;&#xA;               Please use C simulation to confirm this function argument can be read from or written to." projectName="qrc_decoder" solutionName="solution1" date="2020-08-01T23:36:34.292+0800" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Setting dangling out port 'qrc_decoder/pdata_address0' to 0." projectName="qrc_decoder" solutionName="solution1" date="2020-08-01T23:36:34.282+0800" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Port 'qrc_decoder/pdata_address0' has no fanin or fanout and is left dangling.&#xD;&#xA;               Please use C simulation to confirm this function argument can be read from or written to." projectName="qrc_decoder" solutionName="solution1" date="2020-08-01T23:36:34.274+0800" type="Warning"/>
+        <logs message="WARNING: [XFORM 203-561] Ignored multiple trip count directives for loop 'Loop-0' in function 'qrc_decoder'." projectName="qrc_decoder" solutionName="solution1" date="2020-08-01T23:36:34.044+0800" type="Warning"/>
+        <logs message="WARNING: [XFORM 203-561] Updating loop upper bound from 255 to 122 for loop 'Loop-0' in function 'get_block'." projectName="qrc_decoder" solutionName="solution1" date="2020-08-01T23:36:33.869+0800" type="Warning"/>
+        <logs message="WARNING: [SYNCHK 200-77] The top function 'qrc_decoder' (qrc_decoder/src/qrc_decoder.c:34) has no outputs. Possible cause(s) are: (1) Output parameters are passed by value; (2) intended outputs (parameters or global variables) are never written; (3) there are infinite loops." projectName="qrc_decoder" solutionName="solution1" date="2020-08-01T23:36:33.603+0800" type="Warning"/>
+      </synLog>
+      <simLog/>
+      <mgLog/>
+      <packageLog/>
+      <csimLog/>
+    </logs>
+  </warningLogs>
+</vivadoHLSLog:LogRoot>

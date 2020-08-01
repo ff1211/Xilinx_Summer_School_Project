@@ -1,0 +1,17 @@
+INFO: [SIM 2] *************** CSIM start ***************
+INFO: [SIM 4] CSIM will launch GCC as the compiler.
+   Compiling(apcc) ../../../src/qrc_decoder_test.c in debug mode
+INFO: [HLS 200-10] Running 'C:/yueqihong/MYSOFTWARE/Xilinx/Vivado/2018.3/bin/unwrapped/win64.o/apcc.exe'
+INFO: [HLS 200-10] For user 'zhen' on host 'desktop-ul996bd' (Windows NT_amd64 version 6.2) on Sat Aug 01 23:35:17 +0800 2020
+INFO: [HLS 200-10] In directory 'C:/xup/qrc_decoder/qrc_decoder/solution1/csim/build'
+INFO: [APCC 202-3] Tmp directory is apcc_db
+INFO: [APCC 202-1] APCC is done.
+   Compiling(apcc) ../../../src/qrc_decoder.c in debug mode
+INFO: [HLS 200-10] Running 'C:/yueqihong/MYSOFTWARE/Xilinx/Vivado/2018.3/bin/unwrapped/win64.o/apcc.exe'
+INFO: [HLS 200-10] For user 'zhen' on host 'desktop-ul996bd' (Windows NT_amd64 version 6.2) on Sat Aug 01 23:35:29 +0800 2020
+INFO: [HLS 200-10] In directory 'C:/xup/qrc_decoder/qrc_decoder/solution1/csim/build'
+INFO: [APCC 202-3] Tmp directory is apcc_db
+INFO: [APCC 202-1] APCC is done.
+   Generating csim.exe
+ERR: [SIM 100] 'csim_design' failed: nonzero return value.
+INFO: [SIM 3] *************** CSIM finish ***************

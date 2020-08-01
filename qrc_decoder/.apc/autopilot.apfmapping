@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<autopilotfilemapping:AutoPilotFileMapping xmlns:autopilotfilemapping="www.autoesl.com/autopilotfilemapping">
+  <source>
+    <originFiles name="bch.c" path="C:\xup\qrc_decoder\qrc_decoder\src\bch.c"/>
+    <originFiles name="blocks.c" path="C:\xup\qrc_decoder\qrc_decoder\src\blocks.c"/>
+    <originFiles name="data.c" path="C:\xup\qrc_decoder\qrc_decoder\src\data.c"/>
+    <originFiles name="modules.c" path="C:\xup\qrc_decoder\qrc_decoder\src\modules.c"/>
+    <originFiles name="pbm.c" path="C:\xup\qrc_decoder\qrc_decoder\src\pbm.c"/>
+    <originFiles name="rs.c" path="C:\xup\qrc_decoder\qrc_decoder\src\rs.c"/>
+    <originFiles name="qrc_decoder.c" path="C:\xup\qrc_decoder\qrc_decoder\src\qrc_decoder.c"/>
+  </source>
+  <testbench>
+    <originFiles name="qrc_decoder_test.c" path="C:\xup\qrc_decoder\qrc_decoder\src\qrc_decoder_test.c"/>
+  </testbench>
+</autopilotfilemapping:AutoPilotFileMapping>

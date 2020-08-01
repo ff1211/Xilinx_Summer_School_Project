@@ -1,0 +1,113 @@
+
+
+================================================================
+== Vivado HLS Report for 'qrc_decoder'
+================================================================
+* Date:           Sat Aug  1 23:36:34 2020
+
+* Version:        2018.3 (Build 2405991 on Thu Dec 06 23:56:15 MST 2018)
+* Project:        qrc_decoder
+* Solution:       solution1
+* Product family: zynq
+* Target device:  xc7z020clg400-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |  10.00|     0.000|        1.25|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-----+-----+-----+-----+---------+
+    |  Latency  |  Interval | Pipeline|
+    | min | max | min | max |   Type  |
+    +-----+-----+-----+-----+---------+
+    |    0|    0|    0|    0|   none  |
+    +-----+-----+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        N/A
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++-----------------+---------+-------+--------+-------+
+|       Name      | BRAM_18K| DSP48E|   FF   |  LUT  |
++-----------------+---------+-------+--------+-------+
+|DSP              |        -|      -|       -|      -|
+|Expression       |        -|      -|       -|      -|
+|FIFO             |        -|      -|       -|      -|
+|Instance         |        -|      -|       -|      -|
+|Memory           |        -|      -|       -|      -|
+|Multiplexer      |        -|      -|       -|      -|
+|Register         |        -|      -|       -|      -|
++-----------------+---------+-------+--------+-------+
+|Total            |        0|      0|       0|      0|
++-----------------+---------+-------+--------+-------+
+|Available        |      280|    220|  106400|  53200|
++-----------------+---------+-------+--------+-------+
+|Utilization (%)  |        0|      0|       0|      0|
++-----------------+---------+-------+--------+-------+
+
++ Detail: 
+    * Instance: 
+    N/A
+
+    * DSP48: 
+    N/A
+
+    * Memory: 
+    N/A
+
+    * FIFO: 
+    N/A
+
+    * Expression: 
+    N/A
+
+    * Multiplexer: 
+    N/A
+
+    * Register: 
+    N/A
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++----------------+-----+-----+------------+--------------+--------------+
+|    RTL Ports   | Dir | Bits|  Protocol  | Source Object|    C Type    |
++----------------+-----+-----+------------+--------------+--------------+
+|ap_start        |  in |    1| ap_ctrl_hs |  qrc_decoder | return value |
+|ap_done         | out |    1| ap_ctrl_hs |  qrc_decoder | return value |
+|ap_idle         | out |    1| ap_ctrl_hs |  qrc_decoder | return value |
+|ap_ready        | out |    1| ap_ctrl_hs |  qrc_decoder | return value |
+|pdata_address0  | out |    9|  ap_memory |     pdata    |     array    |
+|pdata_ce0       | out |    1|  ap_memory |     pdata    |     array    |
+|pdata_we0       | out |    1|  ap_memory |     pdata    |     array    |
+|pdata_d0        | out |    8|  ap_memory |     pdata    |     array    |
+|pdata_q0        |  in |    8|  ap_memory |     pdata    |     array    |
+|pdata_address1  | out |    9|  ap_memory |     pdata    |     array    |
+|pdata_ce1       | out |    1|  ap_memory |     pdata    |     array    |
+|pdata_we1       | out |    1|  ap_memory |     pdata    |     array    |
+|pdata_d1        | out |    8|  ap_memory |     pdata    |     array    |
+|pdata_q1        |  in |    8|  ap_memory |     pdata    |     array    |
+|dataout         |  in |    8|   ap_none  |    dataout   |    scalar    |
++----------------+-----+-----+------------+--------------+--------------+
+
