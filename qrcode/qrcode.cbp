@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="qrcode" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="bin\Debug\qrcode" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj\Debug\" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Option parameters="-d hw.pbm" />
+				<Compiler>
+					<Add option="-g" />
+				</Compiler>
+			</Target>
+			<Target title="Release">
+				<Option output="bin\Release\qrcode" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj\Release\" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O2" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+		</Compiler>
+		<Unit filename="..\..\yqh\xilinx_summer_school\qrcode-master\bch.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\yqh\xilinx_summer_school\qrcode-master\bch.h" />
+		<Unit filename="..\..\yqh\xilinx_summer_school\qrcode-master\blocks.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\yqh\xilinx_summer_school\qrcode-master\blocks.h" />
+		<Unit filename="..\..\yqh\xilinx_summer_school\qrcode-master\data.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\yqh\xilinx_summer_school\qrcode-master\data.h" />
+		<Unit filename="..\..\yqh\xilinx_summer_school\qrcode-master\decoder.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\yqh\xilinx_summer_school\qrcode-master\decoder.h" />
+		<Unit filename="..\..\yqh\xilinx_summer_school\qrcode-master\encoder.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\yqh\xilinx_summer_school\qrcode-master\encoder.h" />
+		<Unit filename="..\..\yqh\xilinx_summer_school\qrcode-master\examples\hw.pbm" />
+		<Unit filename="..\..\yqh\xilinx_summer_school\qrcode-master\main.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\yqh\xilinx_summer_school\qrcode-master\modules.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\yqh\xilinx_summer_school\qrcode-master\modules.h" />
+		<Unit filename="..\..\yqh\xilinx_summer_school\qrcode-master\pbm.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\yqh\xilinx_summer_school\qrcode-master\pbm.h" />
+		<Unit filename="..\..\yqh\xilinx_summer_school\qrcode-master\rs.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\yqh\xilinx_summer_school\qrcode-master\rs.h" />
+		<Unit filename="..\..\yqh\xilinx_summer_school\qrcode-master\scanner.h" />
+		<Extensions>
+			<code_completion />
+			<envvars />
+			<debugger />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

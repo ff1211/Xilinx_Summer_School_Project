@@ -1,0 +1,83 @@
+# depslib dependency file v1.0
+1596090184 source:f:\yqh\xilinx_summer_school\qrcode-master\bch.c
+	"bch.h"
+
+1470319660 f:\yqh\xilinx_summer_school\qrcode-master\bch.h
+
+1596258474 source:f:\yqh\xilinx_summer_school\qrcode-master\blocks.c
+	"blocks.h"
+	<stdlib.h>
+	<stdio.h>
+	<string.h>
+	"data.h"
+	"modules.h"
+	"rs.h"
+
+1470319660 f:\yqh\xilinx_summer_school\qrcode-master\blocks.h
+	"scanner.h"
+
+1596176419 f:\yqh\xilinx_summer_school\qrcode-master\scanner.h
+	<sys/types.h>
+
+1470319660 f:\yqh\xilinx_summer_school\qrcode-master\data.h
+
+1470319660 f:\yqh\xilinx_summer_school\qrcode-master\modules.h
+	"scanner.h"
+
+1470319660 f:\yqh\xilinx_summer_school\qrcode-master\rs.h
+	"scanner.h"
+
+1470319660 source:f:\yqh\xilinx_summer_school\qrcode-master\data.c
+
+1596269477 source:f:\yqh\xilinx_summer_school\qrcode-master\decoder.c
+	"decoder.h"
+	<stdlib.h>
+	"blocks.h"
+	"bch.h"
+	"data.h"
+
+1596189704 f:\yqh\xilinx_summer_school\qrcode-master\decoder.h
+	"pbm.h"
+
+1596181199 f:\yqh\xilinx_summer_school\qrcode-master\pbm.h
+	<stdio.h>
+	"scanner.h"
+
+1470319660 source:f:\yqh\xilinx_summer_school\qrcode-master\encoder.c
+	"encoder.h"
+	<stdlib.h>
+	<stdio.h>
+	<string.h>
+	"data.h"
+	"blocks.h"
+	"modules.h"
+	"bch.h"
+
+1470319660 f:\yqh\xilinx_summer_school\qrcode-master\encoder.h
+	"scanner.h"
+
+1596269404 source:f:\yqh\xilinx_summer_school\qrcode-master\main.c
+	<stdlib.h>
+	<string.h>
+	"pbm.h"
+	"encoder.h"
+	"decoder.h"
+	<stdlib.h>
+	<string.h>
+	"pbm.h"
+	"encoder.h"
+	"decoder.h"
+
+1596100353 source:f:\yqh\xilinx_summer_school\qrcode-master\modules.c
+	"modules.h"
+	"data.h"
+
+1596213860 source:f:\yqh\xilinx_summer_school\qrcode-master\pbm.c
+	"pbm.h"
+	<stdlib.h>
+	<string.h>
+
+1596175072 source:f:\yqh\xilinx_summer_school\qrcode-master\rs.c
+	"rs.h"
+	<string.h>
+
